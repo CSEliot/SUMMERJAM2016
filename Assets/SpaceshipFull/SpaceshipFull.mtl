@@ -1,0 +1,83 @@
+newmtl Ceiling
+Kd 0.352941 0.352941 0.352941
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd SpaceFloor_diffuse.png
+
+newmtl Default
+Kd 0.784314 0.784314 0.784314
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd SpaceSupports.png
+
+newmtl Door
+Kd 0.784314 0.784314 0.784314
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+
+newmtl floor
+Kd 0.392157 0.392157 0.392157
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd SpaceFloor_diffuse.png
+
+newmtl Glass
+Kd 0 0 0.392157
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0.75
+d 0.25
+Ni 1
+Tf 1 1 1
+map_Kd transparent.png
+
+newmtl ThrusterFuselage
+Kd 0.470588 0.470588 0.470588
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd ThrusterFuselage_diffuse.png
+
+newmtl Wall
+Kd 0.509804 0.509804 0.509804
+Ke 0 0 0
+Ka 1 1 1
+Ks 0 0 0
+Ns 400
+Tr 0
+d 1
+Ni 1
+Tf 1 1 1
+map_Kd SpaceWall_diffuse.png
+
