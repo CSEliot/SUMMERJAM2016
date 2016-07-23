@@ -14,7 +14,7 @@ public class selection : MonoBehaviour {
 
     public AudioClip[] MyClips;
 
-    public Texture2D[] Images;
+    public Image[] Images;
 
     //public Renderer[] MyRenderer;
 
@@ -33,87 +33,200 @@ public class selection : MonoBehaviour {
             sound1.clip = MyClips[0];
             sound1.Play();
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[12].color = new Color(1, 1, 1, 0);
+            Images[8].color = new Color(1, 1, 1, 0);
+            Images[4].color = new Color(1, 1, 1, 0);
+            Images[0].color = new Color(1, 1, 1, 1);
         }
         if (Input.GetButtonDown("p1_Bury")) {
             charselect1 = 3; Debug.Log("spaceship");
             sound1.Stop();
             sound1.clip = MyClips[3];
             sound1.Play();
+            Images[12].color = new Color(1, 1, 1, 0);
+            Images[8].color = new Color(1, 1, 1, 1);
+            Images[4].color = new Color(1, 1, 1, 0);
+            Images[0].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p1_Jump")) {
             charselect1 = 4; Debug.Log("girl");
             sound1.Stop();
             sound1.clip = MyClips[1];
             sound1.Play();
+            Images[12].color = new Color(1, 1, 1, 1);
+            Images[8].color = new Color(1, 1, 1, 0);
+            Images[4].color = new Color(1, 1, 1, 0);
+            Images[0].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p1_Help")) {
             charselect1 = 2; Debug.Log("question");
             sound1.Stop();
             sound1.clip = MyClips[2];
             sound1.Play();
+            Images[12].color = new Color(1, 1, 1, 0);
+            Images[8].color = new Color(1, 1, 1, 0);
+            Images[4].color = new Color(1, 1, 1, 1);
+            Images[0].color = new Color(1, 1, 1, 0);
         }
-
         if (Input.GetButtonDown("p2_Drop"))
         {
             charselect2 = 1;
+            sound1.Stop();
+            sound1.clip = MyClips[0];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[13].color = new Color(1, 1, 1, 0);
+            Images[9].color = new Color(1, 1, 1, 0);
+            Images[5].color = new Color(1, 1, 1, 0);
+            Images[1].color = new Color(1, 1, 1, 1);
         }
         if (Input.GetButtonDown("p2_Bury"))
         {
             charselect2 = 3;
+            sound1.Stop();
+            sound1.clip = MyClips[3];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[13].color = new Color(1, 1, 1, 0);
+            Images[9].color = new Color(1, 1, 1, 1);
+            Images[5].color = new Color(1, 1, 1, 0);
+            Images[1].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p2_Jump"))
         {
             charselect2 = 4;
+            sound1.Stop();
+            sound1.clip = MyClips[1];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[13].color = new Color(1, 1, 1, 1);
+            Images[9].color = new Color(1, 1, 1, 0);
+            Images[5].color = new Color(1, 1, 1, 0);
+            Images[1].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p2_Help"))
         {
             charselect2 = 2;
+            sound1.Stop();
+            sound1.clip = MyClips[2];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[13].color = new Color(1, 1, 1, 0);
+            Images[9].color = new Color(1, 1, 1, 0);
+            Images[5].color = new Color(1, 1, 1, 1);
+            Images[1].color = new Color(1, 1, 1, 0);
         }
 
 
         if (Input.GetButtonDown("p3_Drop"))
         {
             charselect3 = 1;
+            sound1.Stop();
+            sound1.clip = MyClips[0];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[14].color = new Color(1, 1, 1, 0);
+            Images[10].color = new Color(1, 1, 1, 0);
+            Images[6].color = new Color(1, 1, 1, 0);
+            Images[2].color = new Color(1, 1, 1, 1);
         }
         if (Input.GetButtonDown("p3_Bury"))
         {
             charselect3 = 3;
+            sound1.Stop();
+            sound1.clip = MyClips[3];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[14].color = new Color(1, 1, 1, 0);
+            Images[10].color = new Color(1, 1, 1, 1);
+            Images[6].color = new Color(1, 1, 1, 0);
+            Images[2].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p3_Jump"))
         {
             charselect3 = 4;
+            sound1.Stop();
+            sound1.clip = MyClips[1];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[14].color = new Color(1, 1, 1, 4);
+            Images[10].color = new Color(1, 1, 1, 0);
+            Images[6].color = new Color(1, 1, 1, 0);
+            Images[2].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p3_Help"))
         {
             charselect3 = 2;
+            sound1.Stop();
+            sound1.clip = MyClips[2];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[14].color = new Color(1, 1, 1, 0);
+            Images[10].color = new Color(1, 1, 1, 0);
+            Images[6].color = new Color(1, 1, 1, 1);
+            Images[2].color = new Color(1, 1, 1, 0);
         }
 
         if (Input.GetButtonDown("p4_Drop"))
         {
             charselect4 = 1;
+            sound1.Stop();
+            sound1.clip = MyClips[0];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[15].color = new Color(1, 1, 1, 0);
+            Images[11].color = new Color(1, 1, 1, 0);
+            Images[7].color = new Color(1, 1, 1, 0);
+            Images[3].color = new Color(1, 1, 1, 1);
         }
         if (Input.GetButtonDown("p4_Bury"))
         {
             charselect4 = 3;
+            sound1.Stop();
+            sound1.clip = MyClips[3];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[15].color = new Color(1, 1, 1, 0);
+            Images[11].color = new Color(1, 1, 1, 1);
+            Images[7].color = new Color(1, 1, 1, 0);
+            Images[3].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p4_Jump"))
         {
             charselect4 = 4;
+            sound1.Stop();
+            sound1.clip = MyClips[1];
+            sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[15].color = new Color(1, 1, 1, 1);
+            Images[11].color = new Color(1, 1, 1, 0);
+            Images[7].color = new Color(1, 1, 1, 0);
+            Images[3].color = new Color(1, 1, 1, 0);
         }
         if (Input.GetButtonDown("p4_Help"))
         {
             charselect4 = 2;
-        }
-        if (Input.GetButtonDown("p1_Zoom"))
-        {
             sound1.Stop();
-        }
-        if (Input.GetButtonDown("p1_Run"))
-        {
-            sound1.Stop();
-            sound1.clip = MyClips[4];
+            sound1.clip = MyClips[2];
             sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Images[15].color = new Color(1, 1, 1, 0);
+            Images[11].color = new Color(1, 1, 1, 0);
+            Images[7].color = new Color(1, 1, 1, 1);
+            Images[3].color = new Color(1, 1, 1, 0);
         }
+
+        //./
+        //if (Input.GetButtonDown("p1_Zoom"))
+        //{
+        //  sound1.Stop();
+        //}
+        //if (Input.GetButtonDown("p1_Run"))
+        //{
+        //sound1.Stop();
+        //sound1.clip = MyClips[4];
+        //  sound1.Play();
+        //}
 
     }
 }
