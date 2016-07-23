@@ -497,6 +497,14 @@ Prefab:
       propertyPath: m_ConnectedAnchor.z
       value: -0.0043518543
       objectReference: {fileID: 0}
+    - target: {fileID: 11418014, guid: a0dca02596eea23419283f2b0471edf5, type: 2}
+      propertyPath: CollisionPupTime
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418014, guid: a0dca02596eea23419283f2b0471edf5, type: 2}
+      propertyPath: BoostTime
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dca02596eea23419283f2b0471edf5, type: 2}
   m_IsPrefabParent: 0
@@ -614,6 +622,14 @@ Prefab:
     - target: {fileID: 14414508, guid: 92bee18258a7c714dbce8f1e5fbc08de, type: 2}
       propertyPath: m_ConnectedAnchor.z
       value: 0.34123725
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448644, guid: 92bee18258a7c714dbce8f1e5fbc08de, type: 2}
+      propertyPath: CollisionPupTime
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448644, guid: 92bee18258a7c714dbce8f1e5fbc08de, type: 2}
+      propertyPath: BoostTime
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92bee18258a7c714dbce8f1e5fbc08de, type: 2}
@@ -867,6 +883,14 @@ Prefab:
     - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455468, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: CollisionPupTime
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455468, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: BoostTime
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}

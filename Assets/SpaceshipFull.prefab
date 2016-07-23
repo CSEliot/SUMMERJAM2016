@@ -247,8 +247,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165612}
-  m_LocalRotation: {x: 0, y: 0.9956318, z: 0, w: -0.09336687}
-  m_LocalPosition: {x: 62.349903, y: 31.6, z: 66.04466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.02, y: 1.6, z: 16.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477132}
@@ -604,8 +604,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ForceScale: 1.5
   MaxSpeed: 50
+  BoostBonusSpeed: 30
+  BoostBonusAccel: 10
+  CollisionBonusSpeed: 10
   Acceleration: 60
   TurnRate: 3
+  IsDickbutt: 0
+  powerup: 0
+  CollisionPupTime: -1
+  BoostTime: -1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
