@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class selection : MonoBehaviour {
@@ -9,11 +10,18 @@ public class selection : MonoBehaviour {
 
     private AudioSource sound1;
 
+    //private Renderer Renderer1;
+
     public AudioClip[] MyClips;
+
+    public Texture2D[] Images;
+
+    //public Renderer[] MyRenderer;
 
     // Use this for initialization
     void Start () {
         sound1 = GetComponent<AudioSource>();
+        //Renderer1 = GetComponent<Renderer>();
     }
 	
 	// Update is called once per frame
@@ -24,6 +32,7 @@ public class selection : MonoBehaviour {
             sound1.Stop();
             sound1.clip = MyClips[0];
             sound1.Play();
+            //GetComponent<Image>().color = new Color(1, 1, 1, 1);
         }
         if (Input.GetButtonDown("p1_Bury")) {
             charselect1 = 3; Debug.Log("spaceship");
