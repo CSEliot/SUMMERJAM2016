@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipControls : MonoBehaviour {
+public class GirlControls : MonoBehaviour {
 
     bool fly;
     new Rigidbody rigidbody;
