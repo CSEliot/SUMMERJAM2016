@@ -19,6 +19,8 @@ public class ShipControls : MonoBehaviour {
     public float CollisionPupTime = -1f;
     public float BoostTime = -1f;
     new public Camera camera;
+    public GameObject bulletPrefab;
+    public float fuckedTimer = -1f;
 
 	// Use this for initialization
 	void Start ()
@@ -47,6 +49,17 @@ public class ShipControls : MonoBehaviour {
             {
                 MaxSpeed -= BoostBonusSpeed;
                 Acceleration -= BoostBonusAccel;
+            }
+        }
+
+        if (fuckedTimer >= 0)
+        {
+            fuckedTimer -= Time.deltaTime;
+            if (fuckedTimer < 0)
+            {
+                rigidbody.rotation = Quaternion.identity;
+                rigidbody.freezeRotation = true;
+                rigidbody.velocity = Vector3.zero;
             }
         }
 
@@ -127,8 +140,18 @@ public class ShipControls : MonoBehaviour {
         {
             if (CollisionPupTime > 0)
             {
-                // TODO: rek other person running into you
+                other.gameObject.GetComponent<Rigidbody>().freezeRotation = false;
+                other.gameObject.GetComponent<ShipControls>().fuckedTimer = 2f;
+                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
+        }
+        else if (other.gameObject.CompareTag("Kaboomer"))
+        {
+            // TODO: JGAKDLJFKLDALFJKDAJKLFDAJKLFDAJKLFDA
+            Destroy(other.gameObject);
+            rigidbody.freezeRotation = false;
+            fuckedTimer = 2f;
+            rigidbody.velocity = Vector3.zero;
         }
     }
 
@@ -137,7 +160,7 @@ public class ShipControls : MonoBehaviour {
         switch (powerup)
         {
             case EPowerUp.Boost:
-                BoostTime = 1f;
+                BoostTime = 2f;
                 MaxSpeed += BoostBonusSpeed;
                 Acceleration += BoostBonusAccel;
                 break;
@@ -146,7 +169,9 @@ public class ShipControls : MonoBehaviour {
                 MaxSpeed += CollisionBonusSpeed;
                 break;
             case EPowerUp.Projectile:
-                // TODO: Spawn projectile
+                GameObject b = (GameObject)GameObject.Instantiate(bulletPrefab, transform.position - transform.forward * 20, Quaternion.identity);
+                b.transform.Rotate(Vector3.right * -90);
+                b.GetComponent<Rigidbody>().velocity = -transform.forward * 50;
                 break;
             case EPowerUp.None:
                 // You don't have a powerup ya dingus

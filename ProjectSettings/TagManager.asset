@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Powerup
   - CheckPoints
+  - Kaboom
   layers:
   - Default
   - TransparentFX
