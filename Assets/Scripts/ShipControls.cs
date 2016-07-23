@@ -11,6 +11,7 @@ public class ShipControls : MonoBehaviour {
     public float MaxSpeed = 30;
     public float Acceleration = 40;
     public float TurnRate = 3;
+    public bool IsDickbutt = false;
 
 	// Use this for initialization
 	void Start ()
@@ -33,13 +34,13 @@ public class ShipControls : MonoBehaviour {
         {
             rigidbody.angularVelocity = Vector3.zero;
             if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
-                rigidbody.AddForce(-transform.forward * Acceleration * ForceScale);
+                rigidbody.AddForce((IsDickbutt ? -transform.up : -transform.forward) * Acceleration * ForceScale);
 
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             if (Vector3.Dot(-rigidbody.velocity, -transform.forward) < MaxSpeed)
-                rigidbody.AddForce(transform.forward * Acceleration * ForceScale);
+                rigidbody.AddForce((IsDickbutt ? -transform.up : -transform.forward) * Acceleration * ForceScale);
         }
         else
         {
@@ -50,12 +51,12 @@ public class ShipControls : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(Vector3.up * -TurnRate);
+            transform.Rotate((IsDickbutt ? -Vector3.right : Vector3.up) * -TurnRate);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(Vector3.up * TurnRate);
+            transform.Rotate((IsDickbutt ? -Vector3.right : Vector3.up) * TurnRate);
         }
     }
 
