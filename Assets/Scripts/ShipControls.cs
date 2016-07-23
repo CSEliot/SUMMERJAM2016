@@ -7,6 +7,11 @@ public class ShipControls : MonoBehaviour {
     new Rigidbody rigidbody;
     float otherY;
 
+    public float ForceScale = 1f;
+    public float MaxSpeed = 30;
+    public float Acceleration = 40;
+    public float TurnRate = 3;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -21,33 +26,36 @@ public class ShipControls : MonoBehaviour {
         if (fly)
         {
             rigidbody.AddForce(-Physics.gravity);
-            rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)));
+            rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale);
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rigidbody.angularVelocity = Vector3.zero;
-            if (Vector3.Dot(rigidbody.velocity, -transform.forward) < 30)
-                rigidbody.AddForce(-transform.forward * 40);
+            if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
+                rigidbody.AddForce(-transform.forward * Acceleration * ForceScale);
 
         }
-        if (Vector3.Dot(rigidbody.velocity, -transform.forward) > 30)
-            rigidbody.velocity = rigidbody.velocity.normalized * 30;
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (Vector3.Dot(-rigidbody.velocity, -transform.forward) < MaxSpeed)
+                rigidbody.AddForce(transform.forward * Acceleration * ForceScale);
+        }
+        else
+        {
+            rigidbody.velocity *= 0.99f;
+        }
+        if (Vector3.Dot(rigidbody.velocity, -transform.forward) > MaxSpeed)
+            rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(Vector3.up * -3);
+            transform.Rotate(Vector3.up * -TurnRate);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(Vector3.up * 3);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            if (Vector3.Dot(-rigidbody.velocity, -transform.forward) < 30)
-                rigidbody.AddForce(transform.forward * 40);
+            transform.Rotate(Vector3.up * TurnRate);
         }
     }
 
