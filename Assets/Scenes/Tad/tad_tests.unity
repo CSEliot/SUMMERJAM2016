@@ -375,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22406040, guid: 01f608c8056cc414989205b5ca0ada31, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22406040, guid: 01f608c8056cc414989205b5ca0ada31, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -467,6 +467,18 @@ Prefab:
       propertyPath: uiImage
       value: 
       objectReference: {fileID: 1069748573}
+    - target: {fileID: 11455468, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: IsDatBoi
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455468, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: TurnRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484770, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
   m_IsPrefabParent: 0

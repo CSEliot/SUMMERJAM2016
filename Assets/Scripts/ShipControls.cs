@@ -17,7 +17,7 @@ public class ShipControls : MonoBehaviour {
     public float CollisionBonusSpeed = 10;
     public float Acceleration = 40;
     public float TurnRate = 3;
-    public bool IsDickbutt = false;
+    public bool IsDatBoi = false;
     public EPowerUp powerup = EPowerUp.None;
     public float CollisionPupTime = -1f;
     public float BoostTime = -1f;
@@ -66,7 +66,7 @@ public class ShipControls : MonoBehaviour {
             }
         }
 
-        if (fly)
+        if (fly && !IsDatBoi)
         {
             rigidbody.AddForce(-Physics.gravity);
             rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale);
@@ -77,19 +77,28 @@ public class ShipControls : MonoBehaviour {
             rigidbody.angularVelocity = Vector3.zero;
             if (Mathf.Abs(Vector3.Dot(rigidbody.velocity, -transform.forward)) < MaxSpeed)
             {
-                rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
+                if (!IsDatBoi)
+                    rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
+                else
+                    rigidbody.velocity = -transform.forward * MaxSpeed;
             }
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             if (Mathf.Abs(Vector3.Dot(-rigidbody.velocity, -transform.forward)) < MaxSpeed)
             {
-                rigidbody.AddForce((camera ? -camera.transform.forward : transform.forward) * Acceleration * ForceScale);
+                if (!IsDatBoi)
+                    rigidbody.AddForce((camera ? -camera.transform.forward : transform.forward) * Acceleration * ForceScale);
+                else
+                    rigidbody.velocity = transform.forward * MaxSpeed;
             }
         }
         else
         {
-            rigidbody.velocity *= 0.99f;
+            if (!IsDatBoi)
+                rigidbody.velocity *= 0.99f;
+            else
+                rigidbody.velocity = Vector3.zero;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
