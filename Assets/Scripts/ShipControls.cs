@@ -75,6 +75,11 @@ public class ShipControls : MonoBehaviour {
         {
             rigidbody.velocity *= 0.99f;
         }
+        
+        if (rigidbody.velocity.sqrMagnitude > MaxSpeed * MaxSpeed)
+        {
+            rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {

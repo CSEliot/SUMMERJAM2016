@@ -248,7 +248,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.02, y: 1.6, z: 16.15}
+  m_LocalPosition: {x: -16.958609, y: 0.78, z: 12.039794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477132}
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceScale: 1.5
-  MaxSpeed: 50
+  MaxSpeed: 30
   BoostBonusSpeed: 30
   BoostBonusAccel: 10
   CollisionBonusSpeed: 10
@@ -613,6 +613,7 @@ MonoBehaviour:
   powerup: 0
   CollisionPupTime: -1
   BoostTime: -1
+  camera: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

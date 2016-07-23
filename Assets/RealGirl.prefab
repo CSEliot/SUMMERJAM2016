@@ -1206,7 +1206,7 @@ GameObject:
   - 54: {fileID: 5499322}
   - 144: {fileID: 14450126}
   - 65: {fileID: 6505980}
-  - 114: {fileID: 11418014}
+  - 114: {fileID: 11457122}
   m_Layer: 0
   m_Name: RealGirl
   m_TagString: Player
@@ -2148,7 +2148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186502}
   m_LocalRotation: {x: -0.0002497693, y: 0.99551016, z: 0.0026279031, w: 0.09461807}
-  m_LocalPosition: {x: -1.45, y: 4.54, z: 7.96}
+  m_LocalPosition: {x: -2.19, y: 4.52, z: 11.81}
   m_LocalScale: {x: 1, y: 1, z: 0.46581548}
   m_Children: []
   m_Father: {fileID: 432816}
@@ -2442,7 +2442,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!54 &5466100
 Rigidbody:
@@ -2502,7 +2502,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &6505980
 BoxCollider:
@@ -2540,7 +2540,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2529015, y: 0.5401541, z: 0.7193344}
   m_Center: {x: -0.11339765, y: 0.036461566, z: -0.004116079}
---- !u!114 &11418014
+--- !u!114 &11457122
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2552,16 +2552,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceScale: 1
-  MaxSpeed: 40
+  MaxSpeed: 30
   BoostBonusSpeed: 30
   BoostBonusAccel: 10
   CollisionBonusSpeed: 10
-  Acceleration: 40
+  Acceleration: 60
   TurnRate: 3
   IsDickbutt: 0
   powerup: 0
   CollisionPupTime: -1
   BoostTime: -1
+  camera: {fileID: 0}
 --- !u!135 &13573326
 SphereCollider:
   m_ObjectHideFlags: 1
