@@ -59,6 +59,14 @@ public class ShipControls : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Powerup"))
+        {
+            // TODO: Powerup
+        }
+    }
+
     void OnTriggerStay(Collider other)
     {
         if (!other.gameObject.CompareTag("Player"))
