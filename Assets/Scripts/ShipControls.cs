@@ -18,6 +18,7 @@ public class ShipControls : MonoBehaviour {
     public EPowerUp powerup = EPowerUp.None;
     public float CollisionPupTime = -1f;
     public float BoostTime = -1f;
+    new public Camera camera;
 
 	// Use this for initialization
 	void Start ()
@@ -52,7 +53,7 @@ public class ShipControls : MonoBehaviour {
         if (fly)
         {
             rigidbody.AddForce(-Physics.gravity);
-            rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale, ForceMode.Acceleration);
+            rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale);
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
@@ -60,41 +61,44 @@ public class ShipControls : MonoBehaviour {
             rigidbody.angularVelocity = Vector3.zero;
             if (Mathf.Abs(Vector3.Dot(rigidbody.velocity, -transform.forward)) < MaxSpeed)
             {
-                rigidbody.AddForce((IsDickbutt ? -transform.up : -transform.forward) * Acceleration * ForceScale, ForceMode.Acceleration);
+                rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
             }
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             if (Mathf.Abs(Vector3.Dot(-rigidbody.velocity, -transform.forward)) < MaxSpeed)
             {
-                rigidbody.AddForce((IsDickbutt ? transform.up : transform.forward) * Acceleration * ForceScale, ForceMode.Acceleration);
+                rigidbody.AddForce((camera ? -camera.transform.forward : transform.forward) * Acceleration * ForceScale);
             }
         }
         else
         {
             rigidbody.velocity *= 0.99f;
         }
-        if (Vector3.Dot(rigidbody.velocity, -transform.forward) > MaxSpeed)
-            rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate((IsDickbutt ? -Vector3.right : Vector3.up) * -TurnRate);
+            if (camera)
+                rigidbody.AddForce(-camera.transform.right * Acceleration * ForceScale);
+            else
+                transform.Rotate(Vector3.up * -TurnRate);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate((IsDickbutt ? -Vector3.right : Vector3.up) * TurnRate);
+            if (camera)
+                rigidbody.AddForce(camera.transform.right * Acceleration * ForceScale);
+            else
+                transform.Rotate(Vector3.up * TurnRate);
         }
+
+        if (Vector3.Dot(rigidbody.velocity, -transform.forward) > MaxSpeed)
+            rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             UsePowerup();
-        }
-
-        if (rigidbody.isKinematic)
-        {
-            rigidbody.transform.Translate(rigidbody.velocity * Time.deltaTime);
         }
     }
 
