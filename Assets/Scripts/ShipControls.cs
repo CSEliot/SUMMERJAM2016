@@ -58,14 +58,14 @@ public class ShipControls : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rigidbody.angularVelocity = Vector3.zero;
-            if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
+            if (Mathf.Abs(Vector3.Dot(rigidbody.velocity, -transform.forward)) < MaxSpeed)
                 rigidbody.AddForce((IsDickbutt ? -transform.up : -transform.forward) * Acceleration * ForceScale);
 
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (Vector3.Dot(-rigidbody.velocity, -transform.forward) < MaxSpeed)
-                rigidbody.AddForce((IsDickbutt ? -transform.up : -transform.forward) * Acceleration * ForceScale);
+            if (Mathf.Abs(Vector3.Dot(-rigidbody.velocity, -transform.forward)) < MaxSpeed)
+                rigidbody.AddForce((IsDickbutt ? transform.up : transform.forward) * Acceleration * ForceScale);
         }
         else
         {
