@@ -69,12 +69,13 @@ public class ChkPointManager : MonoBehaviour {
 			currPoint = playerPoints[i];
 			nextPoint = playerPoints[i] + 1;
 
-			currPointDist = (Racers [0].transform.position - checkPoints [currPoint%totalPoints].transform.position).magnitude;
-			nextPointDist = (Racers [0].transform.position - checkPoints [nextPoint%totalPoints].transform.position).magnitude;
+			currPointDist = (Racers [i].transform.position - checkPoints [currPoint%totalPoints].transform.position).magnitude;
+			nextPointDist = (Racers [i].transform.position - checkPoints [nextPoint%totalPoints].transform.position).magnitude;
 
 			if (nextPointDist < currPointDist) {
 				//if closer to nextPoint, LEVEL UP!
-				currPoint = nextPoint;
+				playerPoints[i] = nextPoint;
+
 				if (nextPoint%totalPoints == 0) {
 					playerLaps [i]++;
 				}
