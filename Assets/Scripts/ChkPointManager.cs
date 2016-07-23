@@ -22,6 +22,8 @@ public class ChkPointManager : MonoBehaviour {
 	private int currPoint;
 
 
+	//DOES NOT SUPPORT GOING BACK!!!
+
 	// Use this for initialization
 	void Start () {
 
@@ -49,6 +51,10 @@ public class ChkPointManager : MonoBehaviour {
 
 	public int GetPlayerPos(int playerNum){
 		return playerPos [playerNum];
+	}
+
+	public int GetPlayerLap(int playerNum){
+		return playerLaps [playerNum];
 	}
 
 	private void getAssignCheckpoints(){
