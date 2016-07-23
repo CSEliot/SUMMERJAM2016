@@ -247,8 +247,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.958609, y: 0.78, z: 12.039794}
+  m_LocalRotation: {x: 0, y: -0.98092127, z: 0, w: 0.1944055}
+  m_LocalPosition: {x: -11.488633, y: 1.6908432, z: -51.20948}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477132}
@@ -602,6 +602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a86f897c108742848dcc4a719a254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiImage: {fileID: 0}
+  sprShoot: {fileID: 21300000, guid: 4879c918bdb8cf043be9c6e37f062634, type: 3}
+  sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
+  sprDerp: {fileID: 21300000, guid: 03bd3b87be8e30848b95c0161320e9d9, type: 3}
   ForceScale: 1.5
   MaxSpeed: 30
   BoostBonusSpeed: 30
@@ -614,6 +618,8 @@ MonoBehaviour:
   CollisionPupTime: -1
   BoostTime: -1
   camera: {fileID: 0}
+  bulletPrefab: {fileID: 139680, guid: 421bb03f2749cb6489bfc152dbcaa971, type: 2}
+  fuckedTimer: -1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

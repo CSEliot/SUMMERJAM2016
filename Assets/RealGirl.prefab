@@ -1693,7 +1693,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190872}
   m_LocalRotation: {x: -0.0026279031, y: 0.09461823, z: -0.00024976887, w: 0.99551016}
-  m_LocalPosition: {x: -4.712032, y: 0.28, z: 10.26}
+  m_LocalPosition: {x: 45.878998, y: 1.0097814e-15, z: -46.366512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406354}
@@ -2551,6 +2551,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a86f897c108742848dcc4a719a254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiImage: {fileID: 0}
+  sprShoot: {fileID: 21300000, guid: 4879c918bdb8cf043be9c6e37f062634, type: 3}
+  sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
+  sprDerp: {fileID: 21300000, guid: 03bd3b87be8e30848b95c0161320e9d9, type: 3}
   ForceScale: 1
   MaxSpeed: 30
   BoostBonusSpeed: 30
@@ -2563,6 +2567,8 @@ MonoBehaviour:
   CollisionPupTime: -1
   BoostTime: -1
   camera: {fileID: 0}
+  bulletPrefab: {fileID: 139680, guid: 421bb03f2749cb6489bfc152dbcaa971, type: 2}
+  fuckedTimer: -1
 --- !u!135 &13573326
 SphereCollider:
   m_ObjectHideFlags: 1

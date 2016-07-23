@@ -127,7 +127,7 @@ Prefab:
     - target: {fileID: 11421662, guid: f1b36cc1417063e4db6e692cd8c2cbfc, type: 2}
       propertyPath: m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 575560526}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1b36cc1417063e4db6e692cd8c2cbfc, type: 2}
   m_IsPrefabParent: 0
@@ -191,7 +191,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
+--- !u!4 &575560526 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 426580, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+  m_PrefabInternal: {fileID: 1748453670}
 --- !u!1 &847593471
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +270,7 @@ Transform:
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &908868697
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +331,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
+--- !u!114 &1069748573 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11477284, guid: 01f608c8056cc414989205b5ca0ada31,
+    type: 2}
+  m_PrefabInternal: {fileID: 1719410611}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1719410611
 Prefab:
   m_ObjectHideFlags: 0
@@ -365,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22406040, guid: 01f608c8056cc414989205b5ca0ada31, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22406040, guid: 01f608c8056cc414989205b5ca0ada31, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -413,6 +423,52 @@ Prefab:
       objectReference: {fileID: 1770524463}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01f608c8056cc414989205b5ca0ada31, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1748453670
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.488633
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.6908432
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -51.20948
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.98092127
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.1944055
+      objectReference: {fileID: 0}
+    - target: {fileID: 486708, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455468, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+      propertyPath: uiImage
+      value: 
+      objectReference: {fileID: 1069748573}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
   m_IsPrefabParent: 0
 --- !u!20 &1770524463 stripped
 Camera:
@@ -496,7 +552,7 @@ Transform:
   m_LocalScale: {x: 5.6233525, y: 6.545009, z: 0.10114342}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!54 &1938235571
 Rigidbody:
   m_ObjectHideFlags: 0
