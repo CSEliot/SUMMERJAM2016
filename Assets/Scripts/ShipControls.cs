@@ -75,11 +75,6 @@ public class ShipControls : MonoBehaviour {
         {
             rigidbody.velocity *= 0.99f;
         }
-        
-        if (rigidbody.velocity.sqrMagnitude > MaxSpeed * MaxSpeed)
-        {
-            rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
-        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -92,7 +87,7 @@ public class ShipControls : MonoBehaviour {
         if (Input.GetKey(KeyCode.RightArrow))
         {
             if (camera)
-                rigidbody.AddForce(camera.transform.right * Acceleration * ForceScale);
+                rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
             else
                 transform.Rotate(Vector3.up * TurnRate);
         }
