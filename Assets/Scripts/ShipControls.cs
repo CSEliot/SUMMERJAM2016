@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ShipControls : MonoBehaviour {
@@ -7,6 +8,8 @@ public class ShipControls : MonoBehaviour {
     new Rigidbody rigidbody;
     float otherY;
 
+    public Image uiImage;
+    public Sprite sprShoot, sprBoost, sprDerp;
     public float ForceScale = 1f;
     public float MaxSpeed = 30;
     public float BoostBonusSpeed = 30;
@@ -122,26 +125,7 @@ public class ShipControls : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        // Collect powerup
-        if (other.gameObject.CompareTag("Powerup"))
-        {
-            switch (Random.Range(1, 4))
-            {
-                case 1:
-                    powerup = EPowerUp.Boost;
-                    break;
-                case 2:
-                    powerup = EPowerUp.Collision;
-                    break;
-                case 3:
-                    powerup = EPowerUp.Projectile;
-                    break;
-                default:
-                    powerup = EPowerUp.None;
-                    break;
-            }
-        }
-        else if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             if (CollisionPupTime > 0)
             {
@@ -160,6 +144,28 @@ public class ShipControls : MonoBehaviour {
         }
     }
 
+    public void GetPowerup()
+    {
+        switch (Random.Range(1, 4))
+        {
+            case 1:
+                powerup = EPowerUp.Boost;
+                uiImage.sprite = sprBoost;
+                break;
+            case 2:
+                powerup = EPowerUp.Collision;
+                uiImage.sprite = sprDerp;
+                break;
+            case 3:
+                powerup = EPowerUp.Projectile;
+                uiImage.sprite = sprShoot;
+                break;
+            default:
+                powerup = EPowerUp.None;
+                break;
+        }
+    }
+
     void UsePowerup()
     {
         switch (powerup)
@@ -174,15 +180,16 @@ public class ShipControls : MonoBehaviour {
                 MaxSpeed += CollisionBonusSpeed;
                 break;
             case EPowerUp.Projectile:
-                GameObject b = (GameObject)GameObject.Instantiate(bulletPrefab, transform.position - transform.forward * 20, Quaternion.identity);
+                GameObject b = (GameObject)GameObject.Instantiate(bulletPrefab, transform.position + (camera ? (camera.transform.forward - Vector3.up * camera.transform.forward.y) * 2 : -transform.forward * 15), Quaternion.identity);
                 b.transform.Rotate(Vector3.right * -90);
-                b.GetComponent<Rigidbody>().velocity = -transform.forward * 50;
+                b.GetComponent<Rigidbody>().velocity = (camera ? camera.transform.forward - Vector3.up * camera.transform.forward.y : -transform.forward) * 50;
                 break;
             case EPowerUp.None:
                 // You don't have a powerup ya dingus
                 break;
         }
         powerup = EPowerUp.None;
+        uiImage.sprite = null;
     }
 
     void OnTriggerStay(Collider other)

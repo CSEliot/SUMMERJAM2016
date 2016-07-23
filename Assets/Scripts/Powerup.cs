@@ -36,6 +36,10 @@ public class Powerup : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            GameObject temp = other.gameObject;
+            while (temp.GetComponent<ShipControls>() == null)
+                temp = temp.transform.parent.gameObject;
+            temp.GetComponent<ShipControls>().GetPowerup();
             downTime = 4f;
             joint.useSpring = false;
         }
