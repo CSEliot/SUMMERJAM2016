@@ -113,9 +113,9 @@ public class ShipControls : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.GetComponent<ShipControls>().CollisionPupTime > 0)
+            if (CollisionPupTime > 0)
             {
-                // TODO: get rekt by other person running into you
+                // TODO: rek other person running into you
             }
         }
     }
