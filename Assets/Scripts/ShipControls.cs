@@ -100,12 +100,17 @@ public class ShipControls : MonoBehaviour {
         if (Input.GetKey(KeyCode.RightArrow))
         {
             if (camera)
-                rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
+                rigidbody.AddForce(camera.transform.right * Acceleration * ForceScale);
             else
                 transform.Rotate(Vector3.up * TurnRate);
         }
 
-        if (Vector3.Dot(rigidbody.velocity, -transform.forward) > MaxSpeed)
+        if (camera)
+        {
+            if (rigidbody.velocity.sqrMagnitude > MaxSpeed * MaxSpeed)
+                rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
+        }
+        else if (Vector3.Dot(rigidbody.velocity, -transform.forward) > MaxSpeed)
             rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
 
 
@@ -145,7 +150,7 @@ public class ShipControls : MonoBehaviour {
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
-        else if (other.gameObject.CompareTag("Kaboomer"))
+        else if (other.gameObject.CompareTag("Kaboom"))
         {
             // TODO: JGAKDLJFKLDALFJKDAJKLFDAJKLFDAJKLFDA
             Destroy(other.gameObject);
