@@ -218,8 +218,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myChar: 3
   UIImage: {fileID: 2093844104}
-  Place: {fileID: 0}
-  Lap: {fileID: 0}
+  Place: {fileID: 1830657494}
+  Lap: {fileID: 127254274}
   sprShoot: {fileID: 21300000, guid: 4879c918bdb8cf043be9c6e37f062634, type: 3}
   sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
   sprDerp: {fileID: 21300000, guid: 03bd3b87be8e30848b95c0161320e9d9, type: 3}
@@ -259,6 +259,12 @@ Transform:
   - {fileID: 696141059}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &127254274 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11451164, guid: 01f608c8056cc414989205b5ca0ada31,
+    type: 2}
+  m_PrefabInternal: {fileID: 1039514359}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &209492756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1851,12 @@ Transform:
   - {fileID: 509527366}
   m_Father: {fileID: 40795197}
   m_RootOrder: 0
+--- !u!114 &1830657494 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11459708, guid: 01f608c8056cc414989205b5ca0ada31,
+    type: 2}
+  m_PrefabInternal: {fileID: 1039514359}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1891637468
 GameObject:
   m_ObjectHideFlags: 0

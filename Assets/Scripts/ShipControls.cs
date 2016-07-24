@@ -190,6 +190,30 @@ public class ShipControls : MonoBehaviour {
         {
             UsePowerup();
         }
+
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Kaboom");
+        foreach (GameObject g in bullets)
+        {
+            if ((g.transform.position - this.transform.position).magnitude <= 7)
+            {
+                GetRekt(g);
+            }
+        }
+    }
+
+    public void GetRekt(GameObject other)
+    {
+        if (dontExplode < 0)
+        {
+            ShakeScreen(20);
+            dontExplode = 0.5f;
+            GameObject.Instantiate(explosionPrefab, other.gameObject.transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+
+            rigidbody.freezeRotation = false;
+            fuckedTimer = 2f;
+            rigidbody.velocity = Vector3.zero;
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -201,24 +225,9 @@ public class ShipControls : MonoBehaviour {
                 other.gameObject.GetComponent<Rigidbody>().freezeRotation = false;
                 ShipControls found = other.gameObject.GetComponent<ShipControls>();
                 while (found == null)
-                    found = other.transform.parent.GetComponent<ShipControls>();
+                    found = found.transform.parent.GetComponent<ShipControls>();
                 found.fuckedTimer = 2f;
-				Debug.Log ("HIT: " + found.gameObject.name);
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
-        }
-        else if (other.gameObject.CompareTag("Kaboom"))
-        {
-            if (dontExplode < 0)
-            {
-                ShakeScreen(20);
-                dontExplode = 0.5f;
-                GameObject.Instantiate(explosionPrefab, other.gameObject.transform.position, Quaternion.identity);
-                Destroy(other.gameObject);
-
-                rigidbody.freezeRotation = false;
-                fuckedTimer = 2f;
-                rigidbody.velocity = Vector3.zero;
             }
         }
     }
