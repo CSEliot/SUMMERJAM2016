@@ -39,9 +39,14 @@ public class SpawnerManager : MonoBehaviour {
 	}
 
 
-	public IEnumerator RespawnPlayer(int playerNum){
+	public IEnumerator RespawnPlayer(int playerNum, GameObject oldChar){
 		yield return respawnClock;
-		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], m_Chk.GetRespawnCheckpoint(playerNum), Quaternion.Euler(Vector3.zero)) as GameObject;
+		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], m_Chk.GetRespawnCheckpoint(playerNum).position, m_Chk.GetRespawnCheckpoint(playerNum).rotation) as GameObject;
+
+		if (playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.DatBoi || playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.Spaceship) {
+			playerObjs [playerNum].transform.Rotate(new Vector3(0f, 180f, 0f));
+		}
+
 		playerObjs [playerNum].GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
 															  (playerNum == 2 || playerNum == 3)? 0.0f : 0.5f, 
 															  0.5f, 
@@ -50,6 +55,7 @@ public class SpawnerManager : MonoBehaviour {
 		playerObjs [playerNum].name = "Player " + (playerNum + 1);
 
 		isNewToAssign[playerNum] = true;
+		Destroy (oldChar);
 
 	}
 

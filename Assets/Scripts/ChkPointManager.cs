@@ -31,6 +31,7 @@ public class ChkPointManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		racers = new GameObject[4];
 		racerPlaces = new Text[4];
 		racerLaps = new Text[4];
 
@@ -65,8 +66,8 @@ public class ChkPointManager : MonoBehaviour {
 		return playerLaps [playerNum];
 	}
 
-	public Vector3 GetRespawnCheckpoint(int playerNum){
-		return checkPoints[playerPlace[playerNum]].transform.position;
+	public Transform GetRespawnCheckpoint(int playerNum){
+		return checkPoints[playerPlace[playerNum]].transform;
 	}
 
 	public void AssignNewTracking(GameObject newTracker, int playerNum){
@@ -105,7 +106,7 @@ public class ChkPointManager : MonoBehaviour {
 			if (nextPointDist < currPointDist) {
 				//if closer to nextPoint, LEVEL UP!
 				playerPlace[i] = nextPoint;
-				racerPlaces [i].text = "" + nextPoint;
+
 
 				if (nextPoint%totalPoints == 0) {
 					playerLaps [i]++;
@@ -131,6 +132,7 @@ public class ChkPointManager : MonoBehaviour {
 				}
 			}
 			playerPos[i] = tempPos;
+			racerPlaces [i].text = "" + tempPos;
 		}
 	}
 

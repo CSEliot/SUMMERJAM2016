@@ -37,6 +37,8 @@ public class ShipControls : MonoBehaviour {
 	private bool isPlayerNameAssigned;
 	private int playerNum;
 
+	private SpawnerManager m_Spawn;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -45,6 +47,8 @@ public class ShipControls : MonoBehaviour {
         fly = false;
         rigidbody = GetComponent<Rigidbody>();
         otherY = 0;
+
+		m_Spawn = GameObject.FindGameObjectWithTag ("SpawnManager").GetComponent<SpawnerManager> ();
     }
 
     // Update is called once per frame
@@ -149,6 +153,12 @@ public class ShipControls : MonoBehaviour {
             }
         }
 
+		if (Input.GetButtonDown ("p" + playerNum + "_Reset")) {
+			Destroy (UIImage.transform.parent.parent.gameObject);
+			Debug.Log ("Destroying Player: " + playerNum);
+			StartCoroutine (m_Spawn.RespawnPlayer (playerNum - 1, gameObject));
+		}
+
 		if (Input.GetAxis("p" + playerNum + "_Strafe") < -0.2f)
         {
             if (camera)
@@ -180,6 +190,30 @@ public class ShipControls : MonoBehaviour {
         {
             UsePowerup();
         }
+
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Kaboom");
+        foreach (GameObject g in bullets)
+        {
+            if ((g.transform.position - this.transform.position).magnitude <= 7)
+            {
+                GetRekt(g);
+            }
+        }
+    }
+
+    public void GetRekt(GameObject other)
+    {
+        if (dontExplode < 0)
+        {
+            ShakeScreen(20);
+            dontExplode = 0.5f;
+            GameObject.Instantiate(explosionPrefab, other.gameObject.transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+
+            rigidbody.freezeRotation = false;
+            fuckedTimer = 2f;
+            rigidbody.velocity = Vector3.zero;
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -194,20 +228,6 @@ public class ShipControls : MonoBehaviour {
                     found = found.transform.parent.GetComponent<ShipControls>();
                 found.fuckedTimer = 2f;
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
-        }
-        else if (other.gameObject.CompareTag("Kaboom"))
-        {
-            if (dontExplode < 0)
-            {
-                ShakeScreen(20);
-                dontExplode = 0.5f;
-                GameObject.Instantiate(explosionPrefab, other.gameObject.transform.position, Quaternion.identity);
-                Destroy(other.gameObject);
-
-                rigidbody.freezeRotation = false;
-                fuckedTimer = 2f;
-                rigidbody.velocity = Vector3.zero;
             }
         }
     }
