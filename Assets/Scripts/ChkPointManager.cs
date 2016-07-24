@@ -107,4 +107,8 @@ public class ChkPointManager : MonoBehaviour {
 			playerPos[i] = tempPos;
 		}
 	}
+
+	public Vector3 GetRespawnCheckpoint(int playerNum){
+		return checkPoints[playerPoints[playerNum]].transform.position;
+	}
 }

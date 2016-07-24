@@ -8,7 +8,7 @@ public class ShipControls : MonoBehaviour {
     new Rigidbody rigidbody;
     float otherY;
 
-    public Image uiImage;
+    public Image UIImage;
     public Sprite sprShoot, sprBoost, sprDerp;
     public float ForceScale = 1f;
     public float MaxSpeed = 30;
@@ -21,7 +21,7 @@ public class ShipControls : MonoBehaviour {
     public EPowerUp powerup = EPowerUp.None;
     public float CollisionPupTime = -1f;
     public float BoostTime = -1f;
-    new public Camera camera;
+    new public Camera camera; // IF NOT NULL, IS GIRL/DICKBUTT
     public GameObject bulletPrefab;
     public float fuckedTimer = -1f;
 
@@ -159,15 +159,15 @@ public class ShipControls : MonoBehaviour {
         {
             case 1:
                 powerup = EPowerUp.Boost;
-                uiImage.sprite = sprBoost;
+                UIImage.sprite = sprBoost;
                 break;
             case 2:
                 powerup = EPowerUp.Collision;
-                uiImage.sprite = sprDerp;
+                UIImage.sprite = sprDerp;
                 break;
             case 3:
                 powerup = EPowerUp.Projectile;
-                uiImage.sprite = sprShoot;
+                UIImage.sprite = sprShoot;
                 break;
             default:
                 powerup = EPowerUp.None;
@@ -198,7 +198,7 @@ public class ShipControls : MonoBehaviour {
                 break;
         }
         powerup = EPowerUp.None;
-        uiImage.sprite = null;
+        UIImage.sprite = null;
     }
 
     void OnTriggerStay(Collider other)

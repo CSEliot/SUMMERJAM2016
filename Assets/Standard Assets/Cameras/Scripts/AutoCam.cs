@@ -65,10 +65,10 @@ namespace UnityStandardAssets.Cameras
                 {
                     var targetSpinSpeed = Mathf.Abs(Mathf.DeltaAngle(m_LastFlatAngle, currentFlatAngle))/deltaTime;
                     var desiredTurnAmount = Mathf.InverseLerp(m_SpinTurnLimit, m_SpinTurnLimit*0.75f, targetSpinSpeed);
-                    var turnReactSpeed = (m_CurrentTurnAmount > desiredTurnAmount ? .1f : 1f);
+					var turnReactSpeed = 0.5f;//(m_CurrentTurnAmount > desiredTurnAmount ? .1f : 1f);
                     if (Application.isPlaying)
                     {
-                        m_CurrentTurnAmount = Mathf.SmoothDamp(m_CurrentTurnAmount, desiredTurnAmount,
+						m_CurrentTurnAmount = Mathf.SmoothDamp(m_CurrentTurnAmount, desiredTurnAmount,
                                                              ref m_TurnSpeedVelocityChange, turnReactSpeed);
                     }
                     else
