@@ -254,7 +254,6 @@ GameObject:
   - 20: {fileID: 2018862}
   - 92: {fileID: 9287568}
   - 124: {fileID: 12421034}
-  - 81: {fileID: 8124778}
   - 114: {fileID: 11455656}
   - 114: {fileID: 11447412}
   m_Layer: 0
@@ -376,8 +375,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181882}
-  m_LocalRotation: {x: 0, y: 0.280768, z: 0, w: -0.95977575}
-  m_LocalPosition: {x: -4.19492, y: 5, z: 12.45633}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: 0, y: 4.32, z: 9.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22404682}
@@ -425,8 +424,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165612}
-  m_LocalRotation: {x: 0, y: -0.98092127, z: 0, w: 0.1944055}
-  m_LocalPosition: {x: 24.762499, y: 1, z: 38.696636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479598}
@@ -806,13 +805,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.933298, y: 1.6186724, z: 7.469122}
   m_Center: {x: -0.03971243, y: -0.5, z: -3.234561}
---- !u!81 &8124778
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181882}
-  m_Enabled: 1
 --- !u!92 &9287568
 Behaviour:
   m_ObjectHideFlags: 1
@@ -4171,7 +4163,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

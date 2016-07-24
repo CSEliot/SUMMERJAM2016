@@ -1861,13 +1861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d73c1fcdb157e488822242bbcce717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound1: {fileID: 0}
-  MyClips:
-  - {fileID: 8300000, guid: 9a28524fb04bad74aa9c8562a5f6f07e, type: 3}
-  - {fileID: 8300000, guid: 6e7aae2fb186cec438c5844b76419bc0, type: 3}
-  - {fileID: 8300000, guid: 3cb601dc27fdbb343b6c338ab34b402e, type: 3}
-  - {fileID: 8300000, guid: 46facf9f41d5dff4c8222738472e266a, type: 3}
-  - {fileID: 8300000, guid: 48a22111ae192934bb323d54f4582fce, type: 3}
   Images:
   - {fileID: 1708015641}
   - {fileID: 945742043}
@@ -2098,6 +2091,10 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
+      propertyPath: MSX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
       propertyPath: Announcers.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -2177,6 +2174,14 @@ Prefab:
       propertyPath: Announcers.Array.data[3]
       value: 
       objectReference: {fileID: 1675129011}
+    - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
+      propertyPath: MSX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e003e198255d624b98e9f31b3e5ac8a, type: 3}
+    - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
+      propertyPath: MSX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3bde82609ae66604284cda89a543c665, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
   m_IsPrefabParent: 0
