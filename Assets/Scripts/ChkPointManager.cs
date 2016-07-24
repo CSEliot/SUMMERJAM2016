@@ -25,18 +25,21 @@ public class ChkPointManager : MonoBehaviour {
 	private int nextPoint;
 	private int currPoint;
 
+	private Master m;
 
 	//DOES NOT SUPPORT GOING BACK!!!
 
 	// Use this for initialization
 	void Start () {
 
+		m = GameObject.Find("Master").GetComponent<Master> ();
+
 		racers = new GameObject[4];
 		racerPlaces = new Text[4];
 		racerLaps = new Text[4];
 
 		playerPlace = new int[] { 0, 0, 0, 0 };
-		playerLaps = new int[] { 1, 1, 1, 1 };
+		playerLaps = new int[] { 3, 3, 3, 3 };
 		distToNextPoint = new float[] { 0f, 0f, 0f, 0f };
 		playerPos = new int[] { 0, 0, 0, 0 };
 
@@ -109,7 +112,7 @@ public class ChkPointManager : MonoBehaviour {
 
 
 				if (nextPoint%totalPoints == 0) {
-					playerLaps [i]++;
+					playerLaps [i]--;
 					racerLaps [i].text = ""+playerLaps [i];
 				}
 			}
@@ -133,6 +136,9 @@ public class ChkPointManager : MonoBehaviour {
 			}
 			playerPos[i] = tempPos;
 			racerPlaces [i].text = "" + tempPos;
+			if (tempPos == 1) {
+				m.SetWinner (i+1);
+			}
 		}
 	}
 

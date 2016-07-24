@@ -20,9 +20,13 @@ public class Master : MonoBehaviour {
 
 	private Character[] playerChars;
 
+	private int currentWinner;
+
 	// Use this for initialization
 	void Start () {
-		
+
+		currentWinner = -1;
+
 		if (GameObject.FindGameObjectsWithTag ("Master").Length > 1) {
 			Destroy (gameObject);
 		}
@@ -86,5 +90,13 @@ public class Master : MonoBehaviour {
 		MSXBox.Stop ();
 		MSXBox.clip = MSX [msxNum];
 		MSXBox.Play ();
+	}
+
+	public void SetWinner(int playerNum){
+		currentWinner = playerNum;
+	}
+
+	public int GetWinner(){
+		return currentWinner;
 	}
 }

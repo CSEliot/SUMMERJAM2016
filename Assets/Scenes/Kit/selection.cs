@@ -248,7 +248,7 @@ public class selection : MonoBehaviour {
         }
 
 		if (Input.GetButtonDown ("Start") && p1Chosen && p2Chosen && p3Chosen && p4Chosen) {
-			SceneManager.LoadScene (2);
+			SceneManager.LoadScene ("stage select");
 		}
     }
 }

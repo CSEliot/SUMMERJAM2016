@@ -1847,7 +1847,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2093,7 +2092,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
       propertyPath: MSX.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
       propertyPath: Announcers.Array.size
@@ -2187,6 +2186,10 @@ Prefab:
       propertyPath: MSX.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: ab3749596689b48429144a20bb2448ea, type: 3}
+    - target: {fileID: 11472938, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
+      propertyPath: MSX.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e71ffedbc049c4087db292b4b8dd84, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
   m_IsPrefabParent: 0
