@@ -27,6 +27,7 @@ public class selection : MonoBehaviour {
 		p4Chosen = false;
 
 		m = GameObject.FindGameObjectWithTag ("Master").GetComponent<Master>();
+        m.PlayMSX(2);
     }
 
 
