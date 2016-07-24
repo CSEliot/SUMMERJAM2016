@@ -37,6 +37,8 @@ public class ShipControls : MonoBehaviour {
 	private bool isPlayerNameAssigned;
 	private int playerNum;
 
+	private SpawnerManager m_Spawn;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -45,6 +47,8 @@ public class ShipControls : MonoBehaviour {
         fly = false;
         rigidbody = GetComponent<Rigidbody>();
         otherY = 0;
+
+		m_Spawn = GameObject.FindGameObjectWithTag ("SpawnManager").GetComponent<SpawnerManager> ();
     }
 
     // Update is called once per frame
@@ -149,6 +153,12 @@ public class ShipControls : MonoBehaviour {
             }
         }
 
+		if (Input.GetButtonDown ("p" + playerNum + "_Reset")) {
+			Destroy (UIImage.transform.parent.parent.gameObject);
+			Debug.Log ("Destroying Player: " + playerNum);
+			StartCoroutine (m_Spawn.RespawnPlayer (playerNum - 1, gameObject));
+		}
+
 		if (Input.GetAxis("p" + playerNum + "_Strafe") < -0.2f)
         {
             if (camera)
@@ -191,8 +201,9 @@ public class ShipControls : MonoBehaviour {
                 other.gameObject.GetComponent<Rigidbody>().freezeRotation = false;
                 ShipControls found = other.gameObject.GetComponent<ShipControls>();
                 while (found == null)
-                    found = found.transform.parent.GetComponent<ShipControls>();
+                    found = other.transform.parent.GetComponent<ShipControls>();
                 found.fuckedTimer = 2f;
+				Debug.Log ("HIT: " + found.gameObject.name);
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
