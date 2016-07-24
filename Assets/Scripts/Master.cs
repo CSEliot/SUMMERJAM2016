@@ -11,10 +11,21 @@ public class Master : MonoBehaviour {
 		DatBoi
 	};
 
+	public AudioClip[] SFX;
+	public AudioClip[] MSX;
+
+	public AudioSource MSXBox;
+	public AudioSource SFXBox;
+	public AudioSource[] Announcers;
+
 	private Character[] playerChars;
 
 	// Use this for initialization
 	void Start () {
+		
+		if (GameObject.FindGameObjectsWithTag ("Master").Length > 1) {
+			Destroy (gameObject);
+		}
 
 		playerChars = new Character[4];
 	
@@ -57,5 +68,23 @@ public class Master : MonoBehaviour {
 
 	public Character GetPlayerChar(int player){
 		return playerChars [player];
+	}
+
+	public void PlaySFX(int sfxNum){
+		SFXBox.Stop ();
+		SFXBox.clip = SFX [sfxNum];
+		SFXBox.Play ();
+	}
+
+	public void PlaySFX(int sfxNum, int announcerNum){
+		Announcers [announcerNum].Stop ();
+		Announcers [announcerNum].clip = SFX [sfxNum];
+		Announcers [announcerNum].Play ();
+	}
+
+	public void PlayMSX(int msxNum){
+		MSXBox.Stop ();
+		MSXBox.clip = MSX [msxNum];
+		MSXBox.Play ();
 	}
 }
