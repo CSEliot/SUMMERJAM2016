@@ -188,7 +188,10 @@ public class ShipControls : MonoBehaviour {
             if (CollisionPupTime > 0)
             {
                 other.gameObject.GetComponent<Rigidbody>().freezeRotation = false;
-                other.gameObject.GetComponent<ShipControls>().fuckedTimer = 2f; // TODO: This can crash, need to search parents for ShipControls
+                ShipControls found = other.gameObject.GetComponent<ShipControls>();
+                while (found == null)
+                    found = found.transform.parent.GetComponent<ShipControls>();
+                found.fuckedTimer = 2f;
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
