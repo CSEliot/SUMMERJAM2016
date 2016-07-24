@@ -19,6 +19,7 @@ public class RaceCamera : MonoBehaviour {
         targetTransform = Target.GetComponent<Transform>();
         targetRigidbody = Target.GetComponent<Rigidbody>();
         Velocity = Vector3.zero;
+		transform.SetParent (null);
 	}
 	
 	// Update is called once per frame
