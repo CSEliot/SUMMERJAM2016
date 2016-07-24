@@ -11,6 +11,8 @@ public class ShipControls : MonoBehaviour {
 	public Master.Character myChar;
 
     public Image UIImage;
+	public Text Place;
+	public Text Lap;
     public Sprite sprShoot, sprBoost, sprDerp;
     public float ForceScale = 1f;
     public float MaxSpeed = 30;

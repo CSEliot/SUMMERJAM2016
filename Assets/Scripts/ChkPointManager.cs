@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ChkPointManager : MonoBehaviour {
 
-	public GameObject[] Racers;
+	private GameObject[] racers;
+	private Text[] racerLaps;
+	private Text[] racerPlaces;
+
 	private int totalPlayers;
 	private GameObject[] checkPoints;
 	private int totalPoints;
 
 	private string pointName;
 
-	private int[] playerPoints;
+	private int[] playerPlace;
 	private int[] playerLaps;
 	private float[] distToNextPoint; // 1 - 4 dist to next point.
 	private int[] playerPos;
@@ -27,7 +31,10 @@ public class ChkPointManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		playerPoints = new int[] { 0, 0, 0, 0 };
+		racerPlaces = new Text[4];
+		racerLaps = new Text[4];
+
+		playerPlace = new int[] { 0, 0, 0, 0 };
 		playerLaps = new int[] { 1, 1, 1, 1 };
 		distToNextPoint = new float[] { 0f, 0f, 0f, 0f };
 		playerPos = new int[] { 0, 0, 0, 0 };
@@ -59,7 +66,13 @@ public class ChkPointManager : MonoBehaviour {
 	}
 
 	public Vector3 GetRespawnCheckpoint(int playerNum){
-		return checkPoints[playerPoints[playerNum]].transform.position;
+		return checkPoints[playerPlace[playerNum]].transform.position;
+	}
+
+	public void AssignNewTracking(GameObject newTracker, int playerNum){
+		racers[playerNum] = newTracker;
+		racerPlaces[playerNum] = newTracker.GetComponent<ShipControls> ().Place;
+		racerLaps [playerNum] = newTracker.GetComponent<ShipControls> ().Lap;
 	}
 
 	private void CorrectLookAhead(){
@@ -83,18 +96,20 @@ public class ChkPointManager : MonoBehaviour {
 
 	private void updatePlayerPoints(){
 		for (int i = 0; i < totalPlayers; i++) {
-			currPoint = playerPoints[i];
-			nextPoint = playerPoints[i] + 1;
+			currPoint = playerPlace[i];
+			nextPoint = playerPlace[i] + 1;
 
-			currPointDist = (Racers [i].transform.position - checkPoints [currPoint%totalPoints].transform.position).magnitude;
-			nextPointDist = (Racers [i].transform.position - checkPoints [nextPoint%totalPoints].transform.position).magnitude;
+			currPointDist = (racers [i].transform.position - checkPoints [currPoint%totalPoints].transform.position).magnitude;
+			nextPointDist = (racers [i].transform.position - checkPoints [nextPoint%totalPoints].transform.position).magnitude;
 
 			if (nextPointDist < currPointDist) {
 				//if closer to nextPoint, LEVEL UP!
-				playerPoints[i] = nextPoint;
+				playerPlace[i] = nextPoint;
+				racerPlaces [i].text = "" + nextPoint;
 
 				if (nextPoint%totalPoints == 0) {
 					playerLaps [i]++;
+					racerLaps [i].text = ""+playerLaps [i];
 				}
 			}
 
@@ -108,9 +123,9 @@ public class ChkPointManager : MonoBehaviour {
 			int tempPos = 4;
 			for (int x = 0; x < totalPlayers; x++) {
 				if (x != i) {
-					if (playerPoints [i] > playerPoints [x])
+					if (playerPlace [i] > playerPlace [x])
 						tempPos--;
-					else if (distToNextPoint [i] < distToNextPoint [x] && playerPoints [i] == playerPoints [x]) {
+					else if (distToNextPoint [i] < distToNextPoint [x] && playerPlace [i] == playerPlace [x]) {
 						tempPos--;
 					}		
 				}
