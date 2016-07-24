@@ -924,7 +924,7 @@ MonoBehaviour:
   - {fileID: 136774, guid: 92bee18258a7c714dbce8f1e5fbc08de, type: 2}
   - {fileID: 165612, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
   - {fileID: 190872, guid: a0dca02596eea23419283f2b0471edf5, type: 2}
-  - {fileID: 165612, guid: 5d8e1110d88afa84c9c1091f4ab98cb6, type: 2}
+  - {fileID: 165892, guid: 082b73eac460e1d4ab0b70355ce09f4d, type: 2}
   SpawnPoints:
   - {fileID: 2010243376}
   - {fileID: 75105614}

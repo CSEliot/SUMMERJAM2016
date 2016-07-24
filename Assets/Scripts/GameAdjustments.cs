@@ -3,23 +3,39 @@ using System.Collections;
 
 public class GameAdjustments : MonoBehaviour {
 
+	private bool isAdjusted;
+	private bool isUnparented;
+
 	// Use this for initialization
 	void Start () {
-		adjustRotations ();
+
+		isAdjusted = false;
+		isUnparented = false;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		adjustRotations ();
+
+		if (isAdjusted && !isUnparented) {
+			transform.GetChild (0).transform.parent = null;
+			isUnparented = true;
+		}
 	}
 
 	private void adjustRotations(){
-		
-		if (transform.GetChild (0).name.Contains ("ship")) {
-			Debug.Log ("OHOHOHO");
-			Quaternion tempQ = Quaternion.Euler (new Vector3 (0, 180f, 0));
-			transform.localRotation.Set (tempQ.x, tempQ.y, tempQ.z, tempQ.w);
+
+		if (isAdjusted)
+			return;
+
+		isAdjusted = true;
+
+		Master.Character tempChar = transform.GetChild (0).GetComponent<ShipControls> ().myChar;
+
+		if (tempChar == Master.Character.Spaceship || tempChar == Master.Character.DatBoi) {
+			transform.GetChild (0).transform.Rotate(new Vector3(0f, 180f, 0f));
 		}
-		transform.GetChild (0).transform.parent = null;
+
 	}
 }

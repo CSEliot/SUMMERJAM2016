@@ -688,7 +688,6 @@ GameObject:
   - 20: {fileID: 2079812}
   - 92: {fileID: 9258856}
   - 124: {fileID: 12481820}
-  - 81: {fileID: 8117758}
   - 114: {fileID: 11471692}
   - 114: {fileID: 11421232}
   m_Layer: 0
@@ -1023,7 +1022,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193294}
   m_LocalRotation: {x: 0, y: 0.280768, z: 0, w: -0.95977575}
-  m_LocalPosition: {x: 8.253894, y: 5, z: 26.901373}
+  m_LocalPosition: {x: 8.253894, y: 5, z: -26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22465692}
@@ -1509,13 +1508,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.933298, y: 1.6186724, z: 4.6198673}
   m_Center: {x: -0.039689787, y: -0.5, z: -0.110552266}
---- !u!81 &8117758
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193294}
-  m_Enabled: 1
 --- !u!92 &9258856
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1649,6 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a86f897c108742848dcc4a719a254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myChar: 3
   UIImage: {fileID: 11477358}
   sprShoot: {fileID: 21300000, guid: 4879c918bdb8cf043be9c6e37f062634, type: 3}
   sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
@@ -5085,7 +5078,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5189,6 +5181,14 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 165892}
+    - target: {fileID: 0}
+      propertyPath: myChar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: -26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165892}

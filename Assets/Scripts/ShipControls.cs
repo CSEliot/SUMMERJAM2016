@@ -8,6 +8,8 @@ public class ShipControls : MonoBehaviour {
     new Rigidbody rigidbody;
     float otherY;
 
+	public Master.Character myChar;
+
     public Image UIImage;
     public Sprite sprShoot, sprBoost, sprDerp;
     public float ForceScale = 1f;
@@ -30,18 +32,31 @@ public class ShipControls : MonoBehaviour {
 
     private float dontExplode = -1f;
 
+	private bool isPlayerNameAssigned;
+	private int playerNum;
+
 	// Use this for initialization
 	void Start ()
     {
+		playerNum = -1;
+		isPlayerNameAssigned = false;
         fly = false;
         rigidbody = GetComponent<Rigidbody>();
         otherY = 0;
+
     }
+
+	private void AssignPlayerNum()
+	{
+		playerNum = int.Parse(this.gameObject.name[this.gameObject.name.Length - 1].ToString());
+	}
 
     // Update is called once per frame
     void Update ()
     {
-        if (dontExplode >= 0)
+		AssignPlayerNum ();
+        
+		if (dontExplode >= 0)
         {
             dontExplode -= Time.deltaTime;
         }
@@ -86,7 +101,7 @@ public class ShipControls : MonoBehaviour {
             rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale);
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetAxis("p" + playerNum + "_Forward") > 0.2f)
         {
             rigidbody.angularVelocity = Vector3.zero;
             if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
@@ -97,7 +112,7 @@ public class ShipControls : MonoBehaviour {
                     rigidbody.velocity = -transform.forward * MaxSpeed;
             }
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+		else if (Input.GetAxis("p" + playerNum + "_Forward") < -0.2f)
         {
             if (Vector3.Dot(-rigidbody.velocity, -transform.forward) > -MaxSpeed)
             {
@@ -115,7 +130,7 @@ public class ShipControls : MonoBehaviour {
                 rigidbody.velocity = Vector3.zero;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetAxis("p" + playerNum + "_Strafe") < -0.2f)
         {
             if (camera)
                 rigidbody.AddForce(-camera.transform.right * Acceleration * ForceScale);
@@ -123,7 +138,7 @@ public class ShipControls : MonoBehaviour {
                 transform.Rotate(Vector3.up * -TurnRate);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetAxis("p" + playerNum + "_Strafe") > 0.2f)
         {
             if (camera)
                 rigidbody.AddForce(camera.transform.right * Acceleration * ForceScale);
@@ -140,7 +155,7 @@ public class ShipControls : MonoBehaviour {
             rigidbody.velocity = rigidbody.velocity.normalized * MaxSpeed;
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetButton("p" + playerNum + "_Drop"))
         {
             UsePowerup();
         }
