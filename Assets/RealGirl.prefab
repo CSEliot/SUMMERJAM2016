@@ -1813,7 +1813,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190872}
   m_LocalRotation: {x: -0.0026279031, y: 0.09461823, z: -0.00024976887, w: 0.99551016}
-  m_LocalPosition: {x: -7.512465, y: -1.2536881e-17, z: -0.3253891}
+  m_LocalPosition: {x: 22.65515, y: -1.0209948e-15, z: 45.09152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406354}
@@ -2895,6 +2895,7 @@ MonoBehaviour:
   BoostTime: -1
   camera: {fileID: 2058614}
   bulletPrefab: {fileID: 139680, guid: 421bb03f2749cb6489bfc152dbcaa971, type: 2}
+  explosionPrefab: {fileID: 112592, guid: 5ea6616b033de0b4e99f63101931791c, type: 2}
   fuckedTimer: -1
 --- !u!114 &11470500
 MonoBehaviour:
@@ -3978,6 +3979,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
