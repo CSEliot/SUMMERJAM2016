@@ -11,12 +11,15 @@ public class credits : MonoBehaviour
     public AudioClip credit;
     public AudioClip curby;
 
+	private Master m;
+
     // Use this for initialization
     void Start()
     {
-        sound1 = GetComponent<AudioSource>();
-        sound1.clip = credit;
-        sound1.Play();
+
+		m = GameObject.FindGameObjectWithTag ("Master").GetComponent<Master> ();
+
+        m.PlayMSX(4);
     }
 
     // Update is called once per frame
@@ -28,11 +31,7 @@ public class credits : MonoBehaviour
             curb += 1;
             if (curb == 3)
             {
-                sound2 = GetComponent<AudioSource>();
-                sound1.Stop();
-                sound2.Stop();
-                sound2.clip = curby;
-                sound2.Play();
+				m.PlayMSX (5);
             }
 
         }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ChkPointManager : MonoBehaviour {
@@ -70,13 +71,15 @@ public class ChkPointManager : MonoBehaviour {
 	}
 
 	public Transform GetRespawnCheckpoint(int playerNum){
-		return checkPoints[playerPlace[playerNum]].transform;
+		return checkPoints[playerPlace[playerNum]%checkPoints.Length].transform;
 	}
 
 	public void AssignNewTracking(GameObject newTracker, int playerNum){
 		racers[playerNum] = newTracker;
 		racerPlaces[playerNum] = newTracker.GetComponent<ShipControls> ().Place;
+		racerPlaces [playerNum].text = "" + playerPlace [playerNum];
 		racerLaps [playerNum] = newTracker.GetComponent<ShipControls> ().Lap;
+		racerLaps [playerNum].text = "" + playerLaps [playerNum];
 	}
 
 	private void CorrectLookAhead(){
@@ -114,6 +117,9 @@ public class ChkPointManager : MonoBehaviour {
 				if (nextPoint%totalPoints == 0) {
 					playerLaps [i]--;
 					racerLaps [i].text = ""+playerLaps [i];
+					if (playerLaps [i] == 0) {
+						SceneManager.LoadScene ("victoryscreen");
+					}
 				}
 			}
 
@@ -138,8 +144,30 @@ public class ChkPointManager : MonoBehaviour {
 			racerPlaces [i].text = "" + tempPos;
 			if (tempPos == 1) {
 				m.SetWinner (i+1);
+				switch (racers [i].GetComponent<ShipControls> ().myChar) {
+					case Master.Character.DatBoi:
+						StartCoroutine (leadSFXSupport (2));
+						break;
+					case Master.Character.Dickbutt:
+						StartCoroutine (leadSFXSupport (0));
+						break;
+					case Master.Character.LittleGirl:
+						StartCoroutine (leadSFXSupport (1));
+						break;
+					case Master.Character.Spaceship:
+						StartCoroutine (leadSFXSupport (3));
+						break;
+					default:
+						break;
+				}
 			}
 		}
+	}
+
+	private IEnumerator leadSFXSupport(int sfxSound){
+		m.PlaySFX (sfxSound);
+		yield return new WaitForSeconds (1.5f);
+		m.PlaySFX (10);
 	}
 
 }

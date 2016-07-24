@@ -43,7 +43,8 @@ public class SpawnerManager : MonoBehaviour {
 		yield return respawnClock;
 		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], m_Chk.GetRespawnCheckpoint(playerNum).position, m_Chk.GetRespawnCheckpoint(playerNum).rotation) as GameObject;
 
-		if (playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.DatBoi || playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.Spaceship) {
+		if (playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.DatBoi || playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.Spaceship || 
+			playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.LittleGirl) {
 			playerObjs [playerNum].transform.Rotate(new Vector3(0f, 180f, 0f));
 		}
 

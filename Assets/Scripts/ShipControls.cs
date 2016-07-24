@@ -10,6 +10,8 @@ public class ShipControls : MonoBehaviour {
 
 	public Master.Character myChar;
 
+	private Master m;
+
     public Image UIImage;
 	public Text Place;
 	public Text Lap;
@@ -42,6 +44,9 @@ public class ShipControls : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+
+		m = GameObject.FindGameObjectWithTag ("Master").GetComponent<Master> ();
+
 		playerNum = -1;
 		isPlayerNameAssigned = false;
         fly = false;
@@ -236,15 +241,18 @@ public class ShipControls : MonoBehaviour {
     {
         switch (Random.Range(1, 4))
         {
-            case 1:
+			case 1:
+				m.PlaySFX (6);
                 powerup = EPowerUp.Boost;
                 UIImage.sprite = sprBoost;
                 break;
             case 2:
+				m.PlaySFX (8);
                 powerup = EPowerUp.Collision;
                 UIImage.sprite = sprDerp;
                 break;
             case 3:
+				m.PlaySFX (9);
                 powerup = EPowerUp.Projectile;
                 UIImage.sprite = sprShoot;
                 break;
@@ -259,15 +267,18 @@ public class ShipControls : MonoBehaviour {
         switch (powerup)
         {
             case EPowerUp.Boost:
+				m.PlaySFX (5);
                 BoostTime = 2f;
                 MaxSpeed += BoostBonusSpeed;
                 Acceleration += BoostBonusAccel;
                 break;
             case EPowerUp.Collision:
+				m.PlaySFX (7);
                 CollisionPupTime = 7f;
                 MaxSpeed += CollisionBonusSpeed;
                 break;
-            case EPowerUp.Projectile:
+			case EPowerUp.Projectile:
+				m.PlaySFX (9);
                 GameObject b = (GameObject)GameObject.Instantiate(bulletPrefab, transform.position + (camera ? (camera.transform.forward - Vector3.up * camera.transform.forward.y) * 2 : -transform.forward * 15),
                                 Quaternion.Euler(90 * Vector3.right + (camera ? camera.transform.rotation.eulerAngles.y * Vector3.up + camera.transform.rotation.eulerAngles.z * Vector3.forward
                                                                               : transform.rotation.eulerAngles.y * Vector3.up + transform.rotation.eulerAngles.z * Vector3.forward)));
