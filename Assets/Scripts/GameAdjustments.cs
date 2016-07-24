@@ -15,7 +15,8 @@ public class GameAdjustments : MonoBehaviour {
 
 	private void adjustRotations(){
 		
-		if (transform.GetChild (0).name.Contains ("Ship")) {
+		if (transform.GetChild (0).name.Contains ("ship")) {
+			Debug.Log ("OHOHOHO");
 			Quaternion tempQ = Quaternion.Euler (new Vector3 (0, 180f, 0));
 			transform.localRotation.Set (tempQ.x, tempQ.y, tempQ.z, tempQ.w);
 		}
