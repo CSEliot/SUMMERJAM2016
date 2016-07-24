@@ -1800,7 +1800,7 @@ MonoBehaviour:
   sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
   sprDerp: {fileID: 21300000, guid: 03bd3b87be8e30848b95c0161320e9d9, type: 3}
   ForceScale: 1.5
-  MaxSpeed: 30
+  MaxSpeed: 38
   BoostBonusSpeed: 30
   BoostBonusAccel: 10
   CollisionBonusSpeed: 10
@@ -5389,6 +5389,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
       value: -26
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MaxSpeed
+      value: 38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

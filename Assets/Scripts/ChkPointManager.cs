@@ -28,6 +28,8 @@ public class ChkPointManager : MonoBehaviour {
 
 	private Master m;
 
+	
+
 	//DOES NOT SUPPORT GOING BACK!!!
 
 	// Use this for initialization
@@ -142,7 +144,7 @@ public class ChkPointManager : MonoBehaviour {
 			}
 			playerPos[i] = tempPos;
 			racerPlaces [i].text = "" + tempPos;
-			if (tempPos == 1) {
+			if (tempPos == 1 && (i+1) != m.GetWinner()) {
 				m.SetWinner (i+1);
 				switch (racers [i].GetComponent<ShipControls> ().myChar) {
 					case Master.Character.DatBoi:

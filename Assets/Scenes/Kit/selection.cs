@@ -52,7 +52,7 @@ public class selection : MonoBehaviour {
 			p1Chosen = true;
             charselect1 = 3;
 			m.AssignSpaceshipTo (1);
-			m.PlaySFX (4, 0);
+			m.PlaySFX (3, 0);
             Images[12].color = new Color(1, 1, 1, 0);
             Images[8].color = new Color(1, 1, 1, 1);
             Images[4].color = new Color(1, 1, 1, 0);
@@ -74,7 +74,7 @@ public class selection : MonoBehaviour {
 			m.AssignDatBoiTo (1);
 
             charselect1 = 2; 
-			m.PlaySFX (3, 0);
+			m.PlaySFX (2, 0);
             Images[12].color = new Color(1, 1, 1, 0);
             Images[8].color = new Color(1, 1, 1, 0);
             Images[4].color = new Color(1, 1, 1, 1);
@@ -98,7 +98,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignSpaceshipTo (2);
             charselect2 = 3;
-			m.PlaySFX (4, 1);
+			m.PlaySFX (3, 1);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[13].color = new Color(1, 1, 1, 0);
             Images[9].color = new Color(1, 1, 1, 1);
@@ -126,7 +126,7 @@ public class selection : MonoBehaviour {
 
 
             charselect2 = 2;
-			m.PlaySFX (3, 1);
+			m.PlaySFX (2, 1);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[13].color = new Color(1, 1, 1, 0);
             Images[9].color = new Color(1, 1, 1, 0);
@@ -155,7 +155,7 @@ public class selection : MonoBehaviour {
 			m.AssignSpaceshipTo (3);
 
             charselect3 = 3;
-			m.PlaySFX (4, 2);
+			m.PlaySFX (3, 2);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[14].color = new Color(1, 1, 1, 0);
             Images[10].color = new Color(1, 1, 1, 1);
@@ -183,7 +183,7 @@ public class selection : MonoBehaviour {
 
 
             charselect3 = 2;
-			m.PlaySFX (3, 2);
+			m.PlaySFX (2, 2);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[14].color = new Color(1, 1, 1, 0);
             Images[10].color = new Color(1, 1, 1, 0);
@@ -211,7 +211,7 @@ public class selection : MonoBehaviour {
 			m.AssignSpaceshipTo (4);
 
             charselect4 = 3;
-			m.PlaySFX (4, 3);
+			m.PlaySFX (3, 3);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[15].color = new Color(1, 1, 1, 0);
             Images[11].color = new Color(1, 1, 1, 1);
@@ -239,7 +239,7 @@ public class selection : MonoBehaviour {
 
 
             charselect4 = 2;
-			m.PlaySFX (3, 3);
+			m.PlaySFX (2, 3);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[15].color = new Color(1, 1, 1, 0);
             Images[11].color = new Color(1, 1, 1, 0);

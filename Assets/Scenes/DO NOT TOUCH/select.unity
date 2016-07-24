@@ -1674,6 +1674,10 @@ Prefab:
       propertyPath: SFX.Array.data[10]
       value: 
       objectReference: {fileID: 8300000, guid: f84c71e2f7af39046ba825b5493987b0, type: 3}
+    - target: {fileID: 8236224, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f813b52bdec7d494bb7c4d4c0154ff7a, type: 2}
   m_IsPrefabParent: 0

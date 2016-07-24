@@ -515,8 +515,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 340, y: 344}
-  m_SizeDelta: {x: -51, y: 1364}
+  m_AnchoredPosition: {x: 182.75, y: 344}
+  m_SizeDelta: {x: -365.5, y: 1364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1051556686
 MonoBehaviour:
@@ -550,7 +550,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "PROGRAMMERS:\nELLIOTT LEO CARNY SEIM & KNUCKLES\nTAD \"THE LAD\" CORDL\nKIT
+  m_Text: "PROGRAMMERS:\nELIOT LEO CARNEY SEIM &\nKNUCKLES\nTAD \"THE LAD\" CORDL\nKIT
     HECKMAN\n\nVOICE ACTING:\nKIT HECKMAN\n\n3D MODELLING:\nNIKKI SIMPKY\n\nCOURSE
     DESIGN:\nELI (...)\n\nGAMEPLAY CONTROLLS:\nTAD \"THE LAD\" DROPSY\n\nUI:\nKIT
     HECKMAN.\n\nSPECIAL THANKS:\n\n\n\nYOU\n\n\n\n\"Reality is broken, and \nvideo
