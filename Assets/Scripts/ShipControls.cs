@@ -43,7 +43,6 @@ public class ShipControls : MonoBehaviour {
         fly = false;
         rigidbody = GetComponent<Rigidbody>();
         otherY = 0;
-
     }
 
     // Update is called once per frame
