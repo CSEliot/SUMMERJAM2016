@@ -25,6 +25,8 @@ public class ShipControls : MonoBehaviour {
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
     public float fuckedTimer = -1f;
+    public GameObject PSCollide;
+    public GameObject PSBoost;
 
     private float dontExplode = -1f;
 
@@ -46,18 +48,22 @@ public class ShipControls : MonoBehaviour {
 
         if (CollisionPupTime >= 0)
         {
-            // TODO: Fancy effect
+            PSCollide.SetActive(true);
             CollisionPupTime -= Time.deltaTime;
             if (CollisionPupTime < 0)
+            {
+                PSCollide.SetActive(false);
                 MaxSpeed -= CollisionBonusSpeed;
+            }
         }
 
         if (BoostTime >= 0)
         {
-            // TODO: Fancy effect
+            PSBoost.SetActive(true);
             BoostTime -= Time.deltaTime;
             if (BoostTime < 0)
             {
+                PSBoost.SetActive(false);
                 MaxSpeed -= BoostBonusSpeed;
                 Acceleration -= BoostBonusAccel;
             }
