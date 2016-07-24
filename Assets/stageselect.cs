@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class stageselect : MonoBehaviour {
     private AudioSource sound1;
-    private int timeLeft = 50;
+    private float timeLeft = 1;
     private bool gonow = false;
     public AudioClip selectSound;
     public Image[] Images;
@@ -15,7 +16,11 @@ public class stageselect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKeyDown)
+        if (Input.GetButtonDown("p1_Help"))
+        {
+            SceneManager.LoadScene("theend");
+        }
+            if (!(Input.GetButtonDown("p1_Help")) && (Input.anyKeyDown))
         {
             sound1 = GetComponent<AudioSource>();
             sound1.clip = selectSound;
@@ -29,10 +34,12 @@ public class stageselect : MonoBehaviour {
         }
             if (gonow == true) {
                 Debug.Log("wtf");
-                timeLeft -= 1;
+                timeLeft -= Time.deltaTime;
                 if (timeLeft < 0)
                 {
                     Debug.Log("work");
+                    SceneManager.LoadScene("Map_1");
+                    
                 }
             }
     }
