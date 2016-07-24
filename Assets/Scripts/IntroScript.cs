@@ -25,6 +25,11 @@ public class IntroScript : MonoBehaviour {
             introLooped.Play();
             playFlag = false;
         }
+
+        if (Input.GetButton("p1_Jump") || Input.GetButton("p2_Jump") || Input.GetButton("p3_Jump") || Input.GetButton("p4_Jump"))
+        {
+            ClickPlay();
+        }
 	}
 
     public void ClickPlay()

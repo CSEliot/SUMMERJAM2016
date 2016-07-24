@@ -14,7 +14,7 @@ GameObject:
   - 54: {fileID: 5454472}
   - 59: {fileID: 5987536}
   - 114: {fileID: 11432334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Powerup
   m_TagString: Powerup
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.23, y: 0.97, z: -1.62}
+  m_LocalPosition: {x: 55.12, y: 23.1, z: 215.04765}
   m_LocalScale: {x: 3.2601902, y: 5.052375, z: 0.10114342}
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,7 +91,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 8.23, y: 0, z: -1.62}
+  m_ConnectedAnchor: {x: 55.12, y: 0, z: 215.04765}
   m_UseSpring: 1
   m_Spring:
     spring: 100

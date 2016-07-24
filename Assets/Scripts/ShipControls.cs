@@ -49,7 +49,11 @@ public class ShipControls : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        playerNum = int.Parse(this.gameObject.name[this.gameObject.name.Length - 1].ToString());
+        if (!isPlayerNameAssigned)
+        {
+            playerNum = int.Parse(this.gameObject.name[this.gameObject.name.Length - 1].ToString());
+            isPlayerNameAssigned = true;
+        }
 
         if (dontExplode >= 0)
         {
@@ -96,7 +100,7 @@ public class ShipControls : MonoBehaviour {
             rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale);
         }
 
-		if (Input.GetButton("p" + playerNum + "_Jump"))
+        if (Input.GetButton("p" + playerNum + "_Jump"))
         {
             rigidbody.angularVelocity = Vector3.zero;
             if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
@@ -104,17 +108,27 @@ public class ShipControls : MonoBehaviour {
                 if (!IsDatBoi)
                     rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
                 else
+                {
+                    float temp = rigidbody.velocity.y;
+                    rigidbody.velocity -= temp * Vector3.up;
                     rigidbody.velocity = -transform.forward * MaxSpeed;
+                    rigidbody.velocity += temp * Vector3.up;
+                }
             }
         }
-		else if (Input.GetAxis("p" + playerNum + "_Bury") < -0.2f)
+        else if (Input.GetAxis("p" + playerNum + "_Bury") < -0.2f)
         {
             if (Vector3.Dot(-rigidbody.velocity, -transform.forward) > -MaxSpeed)
             {
                 if (!IsDatBoi)
                     rigidbody.AddForce((camera ? -camera.transform.forward : transform.forward) * Acceleration * ForceScale);
                 else
+                {
+                    float temp = rigidbody.velocity.y;
+                    rigidbody.velocity -= temp * Vector3.up;
                     rigidbody.velocity = transform.forward * MaxSpeed;
+                    rigidbody.velocity += temp * Vector3.up;
+                }
             }
         }
         else
@@ -128,7 +142,10 @@ public class ShipControls : MonoBehaviour {
                 rigidbody.velocity += temp * Vector3.up;
             }
             else
-                rigidbody.velocity = rigidbody.velocity.y * Vector3.up;
+            {
+                rigidbody.velocity -= rigidbody.velocity.x * Vector3.right;
+                rigidbody.velocity -= rigidbody.velocity.z * Vector3.forward;
+            }
         }
 
 		if (Input.GetAxis("p" + playerNum + "_Strafe") < -0.2f)
@@ -171,7 +188,7 @@ public class ShipControls : MonoBehaviour {
             if (CollisionPupTime > 0)
             {
                 other.gameObject.GetComponent<Rigidbody>().freezeRotation = false;
-                other.gameObject.GetComponent<ShipControls>().fuckedTimer = 2f;
+                other.gameObject.GetComponent<ShipControls>().fuckedTimer = 2f; // TODO: This can crash, need to search parents for ShipControls
                 other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
