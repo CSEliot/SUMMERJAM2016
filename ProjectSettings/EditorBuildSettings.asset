@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/DO NOT TOUCH/IntroMenu.unity
   - enabled: 1
     path: Assets/Scenes/DO NOT TOUCH/select.unity
+  - enabled: 1
+    path: Assets/Scenes/DO NOT TOUCH/Map_1.unity

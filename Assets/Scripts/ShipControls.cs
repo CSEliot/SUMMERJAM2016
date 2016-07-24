@@ -23,7 +23,10 @@ public class ShipControls : MonoBehaviour {
     public float BoostTime = -1f;
     new public Camera camera; // IF NOT NULL, IS GIRL/DICKBUTT
     public GameObject bulletPrefab;
+    public GameObject explosionPrefab;
     public float fuckedTimer = -1f;
+
+    private float dontExplode = -1f;
 
 	// Use this for initialization
 	void Start ()
@@ -36,6 +39,11 @@ public class ShipControls : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if (dontExplode >= 0)
+        {
+            dontExplode -= Time.deltaTime;
+        }
+
         if (CollisionPupTime >= 0)
         {
             // TODO: Fancy effect
@@ -75,7 +83,7 @@ public class ShipControls : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rigidbody.angularVelocity = Vector3.zero;
-            if (Mathf.Abs(Vector3.Dot(rigidbody.velocity, -transform.forward)) < MaxSpeed)
+            if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
             {
                 if (!IsDatBoi)
                     rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
@@ -85,7 +93,7 @@ public class ShipControls : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (Mathf.Abs(Vector3.Dot(-rigidbody.velocity, -transform.forward)) < MaxSpeed)
+            if (Vector3.Dot(-rigidbody.velocity, -transform.forward) > -MaxSpeed)
             {
                 if (!IsDatBoi)
                     rigidbody.AddForce((camera ? -camera.transform.forward : transform.forward) * Acceleration * ForceScale);
@@ -145,11 +153,16 @@ public class ShipControls : MonoBehaviour {
         }
         else if (other.gameObject.CompareTag("Kaboom"))
         {
-            // TODO: JGAKDLJFKLDALFJKDAJKLFDAJKLFDAJKLFDA
-            Destroy(other.gameObject);
-            rigidbody.freezeRotation = false;
-            fuckedTimer = 2f;
-            rigidbody.velocity = Vector3.zero;
+            if (dontExplode < 0)
+            {
+                dontExplode = 0.5f;
+                GameObject.Instantiate(explosionPrefab, other.gameObject.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
+
+                rigidbody.freezeRotation = false;
+                fuckedTimer = 2f;
+                rigidbody.velocity = Vector3.zero;
+            }
         }
     }
 
@@ -189,8 +202,9 @@ public class ShipControls : MonoBehaviour {
                 MaxSpeed += CollisionBonusSpeed;
                 break;
             case EPowerUp.Projectile:
-                GameObject b = (GameObject)GameObject.Instantiate(bulletPrefab, transform.position + (camera ? (camera.transform.forward - Vector3.up * camera.transform.forward.y) * 2 : -transform.forward * 15), Quaternion.identity);
-                b.transform.Rotate(Vector3.right * -90);
+                GameObject b = (GameObject)GameObject.Instantiate(bulletPrefab, transform.position + (camera ? (camera.transform.forward - Vector3.up * camera.transform.forward.y) * 2 : -transform.forward * 15),
+                                Quaternion.Euler(90 * Vector3.right + (camera ? camera.transform.rotation.eulerAngles.y * Vector3.up + camera.transform.rotation.eulerAngles.z * Vector3.forward
+                                                                              : transform.rotation.eulerAngles.y * Vector3.up + transform.rotation.eulerAngles.z * Vector3.forward)));
                 b.GetComponent<Rigidbody>().velocity = (camera ? camera.transform.forward - Vector3.up * camera.transform.forward.y : -transform.forward) * 50;
                 break;
             case EPowerUp.None:
