@@ -30,7 +30,7 @@ public class SpawnerManager : MonoBehaviour {
 		m_Chk = GameObject.FindGameObjectWithTag ("CheckpointManager").GetComponent<ChkPointManager> ();
 
 		for (int x = 0; x < totalPlayers; x++) {
-			StartCoroutine(RespawnPlayer (x));
+			spawnPlayer (x);
 		}
 	}
 
@@ -43,6 +43,19 @@ public class SpawnerManager : MonoBehaviour {
 															  0.5f, 
 															  0.5f);
 		
+		Plr.name = "Player " + (playerNum + 1);
+
+		playerObjs [playerNum] = Plr;
+
+	}
+
+	private void spawnPlayer(int playerNum){
+		GameObject Plr = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero)) as GameObject;
+		Plr.GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
+			(playerNum == 2 || playerNum == 3)? 0.0f : 0.5f, 
+			0.5f, 
+			0.5f);
+
 		Plr.name = "Player " + (playerNum + 1);
 
 		playerObjs [playerNum] = Plr;
