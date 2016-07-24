@@ -200,6 +200,7 @@ public class ShipControls : MonoBehaviour {
         {
             if (dontExplode < 0)
             {
+                ShakeScreen(20);
                 dontExplode = 0.5f;
                 GameObject.Instantiate(explosionPrefab, other.gameObject.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
@@ -278,6 +279,14 @@ public class ShipControls : MonoBehaviour {
         }
     }
 
+    private void ShakeScreen(int amount)
+    {
+        ScreenShake c = UIImage.transform.parent.parent.GetComponent<ScreenShake>();
+        if (c != null)
+            c.setShake(amount);
+        else
+            Debug.LogError("Screenshake is missing, but let's not crash just in case");
+    }
 
     public enum EPowerUp
     {
