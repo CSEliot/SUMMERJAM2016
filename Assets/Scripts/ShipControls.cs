@@ -80,7 +80,7 @@ public class ShipControls : MonoBehaviour {
             }
         }
 
-        if (fly && !IsDatBoi)
+        if (fly) // && !IsDatBoi
         {
             rigidbody.AddForce(-Physics.gravity);
             rigidbody.AddForce(Vector3.up * 10 * (1 - (transform.position.y - otherY)) * ForceScale);
