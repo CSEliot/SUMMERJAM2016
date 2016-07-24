@@ -18,7 +18,7 @@ public class SpawnerManager : MonoBehaviour {
 	private WaitForSeconds respawnClock;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
 		respawnClock = new WaitForSeconds (3);
 
@@ -37,28 +37,25 @@ public class SpawnerManager : MonoBehaviour {
 
 	public IEnumerator RespawnPlayer(int playerNum){
 		yield return respawnClock;
-		GameObject Plr = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], m_Chk.GetRespawnCheckpoint(playerNum), Quaternion.Euler(Vector3.zero)) as GameObject;
-		Plr.GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
+		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], m_Chk.GetRespawnCheckpoint(playerNum), Quaternion.Euler(Vector3.zero)) as GameObject;
+		playerObjs [playerNum].GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
 															  (playerNum == 2 || playerNum == 3)? 0.0f : 0.5f, 
 															  0.5f, 
 															  0.5f);
 		
-		Plr.name = "Player " + (playerNum + 1);
-
-		playerObjs [playerNum] = Plr;
+		playerObjs [playerNum].name = "Player " + (playerNum + 1);
 
 	}
 
 	private void spawnPlayer(int playerNum){
-		GameObject Plr = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero)) as GameObject;
-		Plr.GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
+		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero)) as GameObject;
+		playerObjs [playerNum].GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
 			(playerNum == 2 || playerNum == 3)? 0.0f : 0.5f, 
 			0.5f, 
 			0.5f);
 
-		Plr.name = "Player " + (playerNum + 1);
-
-		playerObjs [playerNum] = Plr;
+		playerObjs [playerNum].name = "Player " + (playerNum + 1);
+		playerObjs [playerNum].transform.parent = SpawnPoints [playerNum];
 
 	}
 	

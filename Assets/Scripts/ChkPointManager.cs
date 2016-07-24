@@ -38,6 +38,7 @@ public class ChkPointManager : MonoBehaviour {
 
 		totalPlayers = 4;
 
+		CorrectLookAhead ();
 	}
 	
 	// Update is called once per frame
@@ -55,6 +56,16 @@ public class ChkPointManager : MonoBehaviour {
 
 	public int GetPlayerLap(int playerNum){
 		return playerLaps [playerNum];
+	}
+
+	public Vector3 GetRespawnCheckpoint(int playerNum){
+		return checkPoints[playerPoints[playerNum]].transform.position;
+	}
+
+	private void CorrectLookAhead(){
+		for (int i = 0; i < checkPoints.Length; i++) {
+			checkPoints [i % checkPoints.Length].transform.LookAt (checkPoints [(i + 1) % checkPoints.Length].transform.position);
+		}
 	}
 
 	private void getAssignCheckpoints(){
@@ -108,7 +119,4 @@ public class ChkPointManager : MonoBehaviour {
 		}
 	}
 
-	public Vector3 GetRespawnCheckpoint(int playerNum){
-		return checkPoints[playerPoints[playerNum]].transform.position;
-	}
 }

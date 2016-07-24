@@ -254,7 +254,6 @@ GameObject:
   - 20: {fileID: 2018862}
   - 92: {fileID: 9287568}
   - 124: {fileID: 12421034}
-  - 81: {fileID: 8124778}
   - 114: {fileID: 11455656}
   - 114: {fileID: 11447412}
   m_Layer: 0
@@ -376,8 +375,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181882}
-  m_LocalRotation: {x: 0, y: 0.280768, z: 0, w: -0.95977575}
-  m_LocalPosition: {x: -4.19492, y: 5, z: 12.45633}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: 0, y: 4.32, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22404682}
@@ -425,8 +424,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165612}
-  m_LocalRotation: {x: 0, y: -0.98092127, z: 0, w: 0.1944055}
-  m_LocalPosition: {x: 24.762499, y: 1, z: 38.696636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.212284, y: 6.5794356e-17, z: -3.8531141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479598}
@@ -806,13 +805,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.933298, y: 1.6186724, z: 7.469122}
   m_Center: {x: -0.03971243, y: -0.5, z: -3.234561}
---- !u!81 &8124778
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181882}
-  m_Enabled: 1
 --- !u!92 &9287568
 Behaviour:
   m_ObjectHideFlags: 1
@@ -944,7 +936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a86f897c108742848dcc4a719a254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIImage: {fileID: 0}
+  myChar: 1
+  UIImage: {fileID: 11453116}
   sprShoot: {fileID: 21300000, guid: 4879c918bdb8cf043be9c6e37f062634, type: 3}
   sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
   sprDerp: {fileID: 21300000, guid: 03bd3b87be8e30848b95c0161320e9d9, type: 3}
@@ -4275,6 +4268,14 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 165612}
+    - target: {fileID: 0}
+      propertyPath: myChar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165612}
