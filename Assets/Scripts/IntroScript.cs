@@ -8,6 +8,8 @@ public class IntroScript : MonoBehaviour {
     public AudioSource introIntro;
     public AudioSource introLooped;
 
+	private const int CHAR_SELECT_SCENE_NUM = 1;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -27,6 +29,6 @@ public class IntroScript : MonoBehaviour {
 
     public void ClickPlay()
     {
-        SceneManager.LoadScene("Scenes/Kit/select", LoadSceneMode.Single);
+		SceneManager.LoadScene(CHAR_SELECT_SCENE_NUM);
     }
 }
