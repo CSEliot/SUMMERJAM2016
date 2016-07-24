@@ -672,6 +672,7 @@ GameObject:
   - 223: {fileID: 22323588}
   - 114: {fileID: 11471878}
   - 114: {fileID: 11416528}
+  - 114: {fileID: 11431124}
   m_Layer: 5
   m_Name: RaceUI
   m_TagString: Untagged
@@ -1697,6 +1698,44 @@ MonoBehaviour:
   height: 5
   rotationDamping: 0
   heightDamping: 0
+--- !u!114 &11431124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb9ea9db11f4c8478684db9be0d6fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allText:
+  - {fileID: 11451364}
+  - {fileID: 11491746}
+  - {fileID: 11409034}
+  - {fileID: 11400298}
+  - {fileID: 11418066}
+  allFonts:
+  - {fileID: 12800000, guid: 970f567dc96fd044d977ab81dc6ea5b5, type: 3}
+  - {fileID: 12800000, guid: 84b1daf67ff927f49b5f25ab44df34b0, type: 3}
+  - {fileID: 12800000, guid: 487253e65f9ac7348a747ec8d8289339, type: 3}
+  - {fileID: 12800000, guid: 04f99870e011bed44b2ea58dd341d8fd, type: 3}
+  - {fileID: 12800000, guid: 87c316b602156405d92e616621658222, type: 3}
+  - {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
+  - {fileID: 12800000, guid: b51a3e520f9164da198dc59c8acfccd6, type: 3}
+  - {fileID: 12800000, guid: 01cd679a1b9ee48bf9c546f6ce2cb97e, type: 3}
+  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  allColors:
+  - {r: 0, g: 1, b: 0.25517225, a: 1}
+  - {r: 0.034482956, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.5586207, b: 0, a: 1}
+  - {r: 0.94482756, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.95862055, b: 1, a: 1}
+  - {r: 0.6965518, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.84827566, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &11451364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1743,6 +1782,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myChar: 3
   UIImage: {fileID: 11477358}
+  Place: {fileID: 11418066}
+  Lap: {fileID: 11400298}
   sprShoot: {fileID: 21300000, guid: 4879c918bdb8cf043be9c6e37f062634, type: 3}
   sprBoost: {fileID: 21300000, guid: e84b0926e671b3c4ab3cc48aee4995c6, type: 3}
   sprDerp: {fileID: 21300000, guid: 03bd3b87be8e30848b95c0161320e9d9, type: 3}
@@ -2027,7 +2068,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.5167094, y: -1.015714, z: 0.00000048583854}
+  m_ConnectedAnchor: {x: 0.51670945, y: -1.015714, z: 0.00000031853364}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:

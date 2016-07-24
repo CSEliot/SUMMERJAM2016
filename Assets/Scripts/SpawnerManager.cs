@@ -17,8 +17,12 @@ public class SpawnerManager : MonoBehaviour {
 	public int RespawnSleepTime = 3;
 	private WaitForSeconds respawnClock;
 
+	private bool[] isNewToAssign;
+
 	// Use this for initialization
 	void Awake () {
+
+		isNewToAssign = new bool[4];
 
 		respawnClock = new WaitForSeconds (3);
 
@@ -45,6 +49,8 @@ public class SpawnerManager : MonoBehaviour {
 		
 		playerObjs [playerNum].name = "Player " + (playerNum + 1);
 
+		isNewToAssign[playerNum] = true;
+
 	}
 
 	private void spawnPlayer(int playerNum){
@@ -57,10 +63,17 @@ public class SpawnerManager : MonoBehaviour {
 		playerObjs [playerNum].name = "Player " + (playerNum + 1);
 		playerObjs [playerNum].transform.parent = SpawnPoints [playerNum];
 
+		isNewToAssign[playerNum] = true;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		for (int x = 0; x < isNewToAssign.Length; x++) {
+			if (isNewToAssign [x]) {
+				m_Chk.AssignNewTracking (playerObjs[x], x);
+				isNewToAssign[x] = false;
+			}
+		}
 	}
 }

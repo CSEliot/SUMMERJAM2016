@@ -12,6 +12,9 @@ public class RaceCamera : MonoBehaviour {
     private Transform targetTransform;
     private Rigidbody targetRigidbody;
 
+	private bool unParented;
+	private GameObject myParent;
+
     // Use this for initialization
     void Start ()
     {
@@ -19,12 +22,19 @@ public class RaceCamera : MonoBehaviour {
         targetTransform = Target.GetComponent<Transform>();
         targetRigidbody = Target.GetComponent<Rigidbody>();
         Velocity = Vector3.zero;
-		transform.SetParent (null);
+		unParented = false;
+		myParent = transform.parent.gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+
+		if (!unParented) {
+			transform.SetParent (null);
+			unParented = true;
+		}
+
         transform.LookAt(targetTransform);
         Vector3 newVel = targetRigidbody.velocity.x * Vector3.right + targetRigidbody.velocity.z * Vector3.forward;
         Vector3 newPos = transform.position;

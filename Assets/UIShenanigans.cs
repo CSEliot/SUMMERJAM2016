@@ -8,11 +8,6 @@ public class UIShenanigans : MonoBehaviour {
     public Font[] allFonts;
     public Color[] allColors;
 
-	// Use this for initialization
-	void Start () {
-
-    }
-	
 	// Update is called once per frame
 	void Update () {
         if (Random.Range(0, 2) == 1) return;
