@@ -4,39 +4,41 @@ using System.Collections;
 public class RaceCamera : MonoBehaviour {
 
     public GameObject Target;
-    public float MaxDistance;
+    public float CircleScale = 5;
+    public float MaxDistance = 10;
 
     private Vector3 Velocity;
     new Transform transform;
     private Transform targetTransform;
+    private Rigidbody targetRigidbody;
 
     // Use this for initialization
     void Start ()
     {
         transform = GetComponent<Transform>();
         targetTransform = Target.GetComponent<Transform>();
+        targetRigidbody = Target.GetComponent<Rigidbody>();
         Velocity = Vector3.zero;
-        MaxDistance = 20;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log(Velocity);
-
         transform.LookAt(targetTransform);
-        Vector3 posDiff = targetTransform.position - transform.position;
-        Vector3 towards = posDiff.x * Vector3.right + posDiff.z * Vector3.forward;
-
-        if (posDiff.sqrMagnitude > MaxDistance * MaxDistance)
+        Vector3 newVel = targetRigidbody.velocity.x * Vector3.right + targetRigidbody.velocity.z * Vector3.forward;
+        Vector3 newPos = transform.position;
+        if (newVel.sqrMagnitude > 1)
         {
-            Velocity += towards.normalized;
+            if ((newVel * CircleScale).sqrMagnitude > MaxDistance * MaxDistance)
+            {
+                newPos = targetRigidbody.position - newVel.normalized * MaxDistance + Vector3.up * 4;
+            }
+            else
+            {
+                newPos = targetRigidbody.position - newVel * CircleScale + Vector3.up * 4;
+            }
         }
-        else if (posDiff.sqrMagnitude < MaxDistance * MaxDistance - 5)
-        {
-            Velocity *= 0.9f;
-        }
-           
-        transform.position += Velocity * Time.deltaTime;
-	}
+        
+        transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 3);
+    }
 }

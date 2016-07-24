@@ -75,7 +75,7 @@ public class ShipControls : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rigidbody.angularVelocity = Vector3.zero;
-            if (Mathf.Abs(Vector3.Dot(rigidbody.velocity, -transform.forward)) < MaxSpeed)
+            if (Vector3.Dot(rigidbody.velocity, -transform.forward) < MaxSpeed)
             {
                 if (!IsDatBoi)
                     rigidbody.AddForce((camera ? camera.transform.forward : -transform.forward) * Acceleration * ForceScale);
@@ -85,7 +85,7 @@ public class ShipControls : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            if (Mathf.Abs(Vector3.Dot(-rigidbody.velocity, -transform.forward)) < MaxSpeed)
+            if (Vector3.Dot(-rigidbody.velocity, -transform.forward) > -MaxSpeed)
             {
                 if (!IsDatBoi)
                     rigidbody.AddForce((camera ? -camera.transform.forward : transform.forward) * Acceleration * ForceScale);
