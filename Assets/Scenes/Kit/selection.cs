@@ -9,12 +9,6 @@ public class selection : MonoBehaviour {
     private int charselect3;
     private int charselect4;
 
-    private AudioSource sound1;
-
-    //private Renderer Renderer1;
-
-    public AudioClip[] MyClips;
-
     public Image[] Images;
 
 	private Master m;
@@ -23,8 +17,6 @@ public class selection : MonoBehaviour {
 	private bool p2Chosen;
 	private bool p3Chosen;
 	private bool p4Chosen;
-
-    //public Renderer[] MyRenderer;
 
     // Use this for initialization
     void Start () {
@@ -35,11 +27,9 @@ public class selection : MonoBehaviour {
 		p4Chosen = false;
 
 		m = GameObject.FindGameObjectWithTag ("Master").GetComponent<Master>();
-
-        sound1 = GetComponent<AudioSource>();
-        //Renderer1 = GetComponent<Renderer>();
     }
-	
+
+
 	// Update is called once per frame
 	void Update () {
         //character selection sequence
@@ -48,10 +38,8 @@ public class selection : MonoBehaviour {
 			p1Chosen = true;
 
 			m.AssignDickbuttTo (1);
+			m.PlaySFX (0, 0);
             charselect1 = 1; 
-            sound1.Stop();
-            sound1.clip = MyClips[0];
-            sound1.Play();
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[12].color = new Color(1, 1, 1, 0);
             Images[8].color = new Color(1, 1, 1, 0);
@@ -63,9 +51,7 @@ public class selection : MonoBehaviour {
 			p1Chosen = true;
             charselect1 = 3;
 			m.AssignSpaceshipTo (1);
-            sound1.Stop();
-            sound1.clip = MyClips[3];
-            sound1.Play();
+			m.PlaySFX (4, 0);
             Images[12].color = new Color(1, 1, 1, 0);
             Images[8].color = new Color(1, 1, 1, 1);
             Images[4].color = new Color(1, 1, 1, 0);
@@ -75,9 +61,7 @@ public class selection : MonoBehaviour {
 			p1Chosen = true;
             charselect1 = 4; 
 			m.AssignLittleGirlTo (1);
-            sound1.Stop();
-            sound1.clip = MyClips[1];
-            sound1.Play();
+			m.PlaySFX (1, 0);
             Images[12].color = new Color(1, 1, 1, 1);
             Images[8].color = new Color(1, 1, 1, 0);
             Images[4].color = new Color(1, 1, 1, 0);
@@ -89,9 +73,7 @@ public class selection : MonoBehaviour {
 			m.AssignDatBoiTo (1);
 
             charselect1 = 2; 
-            sound1.Stop();
-            sound1.clip = MyClips[2];
-            sound1.Play();
+			m.PlaySFX (3, 0);
             Images[12].color = new Color(1, 1, 1, 0);
             Images[8].color = new Color(1, 1, 1, 0);
             Images[4].color = new Color(1, 1, 1, 1);
@@ -102,9 +84,7 @@ public class selection : MonoBehaviour {
 			p2Chosen = true;
 			m.AssignDickbuttTo (2);
             charselect2 = 1;
-            sound1.Stop();
-            sound1.clip = MyClips[0];
-            sound1.Play();
+			m.PlaySFX (0, 1);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[13].color = new Color(1, 1, 1, 0);
             Images[9].color = new Color(1, 1, 1, 0);
@@ -117,9 +97,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignSpaceshipTo (2);
             charselect2 = 3;
-            sound1.Stop();
-            sound1.clip = MyClips[3];
-            sound1.Play();
+			m.PlaySFX (4, 1);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[13].color = new Color(1, 1, 1, 0);
             Images[9].color = new Color(1, 1, 1, 1);
@@ -132,9 +110,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignLittleGirlTo (2);
             charselect2 = 4;
-            sound1.Stop();
-            sound1.clip = MyClips[1];
-            sound1.Play();
+			m.PlaySFX (1, 1);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[13].color = new Color(1, 1, 1, 1);
             Images[9].color = new Color(1, 1, 1, 0);
@@ -149,9 +125,7 @@ public class selection : MonoBehaviour {
 
 
             charselect2 = 2;
-            sound1.Stop();
-            sound1.clip = MyClips[2];
-            sound1.Play();
+			m.PlaySFX (3, 1);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[13].color = new Color(1, 1, 1, 0);
             Images[9].color = new Color(1, 1, 1, 0);
@@ -166,9 +140,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignDickbuttTo (3);
             charselect3 = 1;
-            sound1.Stop();
-            sound1.clip = MyClips[0];
-            sound1.Play();
+			m.PlaySFX (0, 2);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[14].color = new Color(1, 1, 1, 0);
             Images[10].color = new Color(1, 1, 1, 0);
@@ -182,9 +154,7 @@ public class selection : MonoBehaviour {
 			m.AssignSpaceshipTo (3);
 
             charselect3 = 3;
-            sound1.Stop();
-            sound1.clip = MyClips[3];
-            sound1.Play();
+			m.PlaySFX (4, 2);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[14].color = new Color(1, 1, 1, 0);
             Images[10].color = new Color(1, 1, 1, 1);
@@ -197,9 +167,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignLittleGirlTo (3);
             charselect3 = 4;
-            sound1.Stop();
-            sound1.clip = MyClips[1];
-            sound1.Play();
+			m.PlaySFX (1, 2);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[14].color = new Color(1, 1, 1, 4);
             Images[10].color = new Color(1, 1, 1, 0);
@@ -214,9 +182,7 @@ public class selection : MonoBehaviour {
 
 
             charselect3 = 2;
-            sound1.Stop();
-            sound1.clip = MyClips[2];
-            sound1.Play();
+			m.PlaySFX (3, 2);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[14].color = new Color(1, 1, 1, 0);
             Images[10].color = new Color(1, 1, 1, 0);
@@ -230,9 +196,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignDickbuttTo (4);
             charselect4 = 1;
-            sound1.Stop();
-            sound1.clip = MyClips[0];
-            sound1.Play();
+			m.PlaySFX (0, 3);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[15].color = new Color(1, 1, 1, 0);
             Images[11].color = new Color(1, 1, 1, 0);
@@ -246,9 +210,7 @@ public class selection : MonoBehaviour {
 			m.AssignSpaceshipTo (4);
 
             charselect4 = 3;
-            sound1.Stop();
-            sound1.clip = MyClips[3];
-            sound1.Play();
+			m.PlaySFX (4, 3);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[15].color = new Color(1, 1, 1, 0);
             Images[11].color = new Color(1, 1, 1, 1);
@@ -261,9 +223,7 @@ public class selection : MonoBehaviour {
 
 			m.AssignLittleGirlTo (4);
             charselect4 = 4;
-            sound1.Stop();
-            sound1.clip = MyClips[1];
-            sound1.Play();
+			m.PlaySFX (1, 3);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[15].color = new Color(1, 1, 1, 1);
             Images[11].color = new Color(1, 1, 1, 0);
@@ -278,9 +238,7 @@ public class selection : MonoBehaviour {
 
 
             charselect4 = 2;
-            sound1.Stop();
-            sound1.clip = MyClips[2];
-            sound1.Play();
+			m.PlaySFX (3, 3);
             //GetComponent<Image>().color = new Color(1, 1, 1, 1);
             Images[15].color = new Color(1, 1, 1, 0);
             Images[11].color = new Color(1, 1, 1, 0);
