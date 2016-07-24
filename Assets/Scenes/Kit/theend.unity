@@ -448,10 +448,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 280505379}
   m_RootOrder: 1
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -153, y: -1271}
-  m_SizeDelta: {x: 799, y: 1918.1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 340, y: 344}
+  m_SizeDelta: {x: -51, y: 1364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1051556686
 MonoBehaviour:
@@ -478,7 +478,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 0
