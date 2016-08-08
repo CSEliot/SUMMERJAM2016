@@ -1781,7 +1781,7 @@ MonoBehaviour:
   BoostBonusAccel: 10
   CollisionBonusSpeed: 10
   Acceleration: 40
-  TurnRate: 3
+  TurnRate: 6
   IsDatBoi: 0
   powerup: 0
   CollisionPupTime: -1
@@ -6059,6 +6059,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: MaxSpeed
       value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TurnRate
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
