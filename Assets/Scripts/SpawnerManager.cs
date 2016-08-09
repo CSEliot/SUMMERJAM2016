@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections
 
-public class SpawnerManager : MonoBehaviour {
+public class SpawnerManager : Photon.MonoBehaviour{
 
 	private Master m;
 	private ChkPointManager m_Chk;
 
 	public GameObject[] RacerPrefabs;
 
-	public Transform[] SpawnPoints;
+	public Transform[] SpawnPoints; 
 
 	private GameObject[] playerObjs;
 
@@ -32,17 +32,13 @@ public class SpawnerManager : MonoBehaviour {
 	
 		m = GameObject.FindGameObjectWithTag ("Master").GetComponent<Master> ();
 		m_Chk = GameObject.FindGameObjectWithTag ("CheckpointManager").GetComponent<ChkPointManager> ();
-
-		for (int x = 0; x < totalPlayers; x++) {
-			spawnPlayer (x);
-		}
 	}
 
 
 	public IEnumerator RespawnPlayer(int playerNum, GameObject oldChar){
 		yield return respawnClock;
-		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], m_Chk.GetRespawnCheckpoint(playerNum).position, m_Chk.GetRespawnCheckpoint(playerNum).rotation) as GameObject;
-
+		PhotonNetwork.Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)].name, m_Chk.GetRespawnCheckpoint(playerNum).position, m_Chk.GetRespawnCheckpoint(playerNum).rotation) as GameObject;
+		AssignPlayers ();
 		if (playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.DatBoi || playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.Spaceship || 
 			playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.LittleGirl) {
 			playerObjs [playerNum].transform.Rotate(new Vector3(0f, 180f, 0f));
@@ -55,13 +51,26 @@ public class SpawnerManager : MonoBehaviour {
 		
 		playerObjs [playerNum].name = "Player " + (playerNum + 1);
 
-		isNewToAssign[playerNum] = true;
-		Destroy (oldChar);
+		isNewToAssign [playerNum] = true;
+		PhotonNetwork.Destroy (oldChar);
+	}
 
+	public void OnJoinedRoom(){
+		AssignPlayers ();
+	}
+
+
+	private void AssignPlayers(){
+		GameObject[] tempObjs = GameObject.FindGameObjectsWithTag("Player");
+
+		for (int x = 0; x = tempObjs.Length; x++) {
+			playerObjs [x] = tempObjs [x];
+		}
 	}
 
 	private void spawnPlayer(int playerNum){
-		playerObjs [playerNum] = Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)], SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero)) as GameObject;
+		PhotonNetwork.Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)].name, SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero));
+		AssignPlayers ();
 		playerObjs [playerNum].GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
 			(playerNum == 2 || playerNum == 3)? 0.0f : 0.5f, 
 			0.5f, 
