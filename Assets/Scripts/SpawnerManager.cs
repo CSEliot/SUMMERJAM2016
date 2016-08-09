@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections
+using System.Collections;
 
 public class SpawnerManager : Photon.MonoBehaviour{
 
@@ -37,7 +37,7 @@ public class SpawnerManager : Photon.MonoBehaviour{
 
 	public IEnumerator RespawnPlayer(int playerNum, GameObject oldChar){
 		yield return respawnClock;
-		PhotonNetwork.Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)].name, m_Chk.GetRespawnCheckpoint(playerNum).position, m_Chk.GetRespawnCheckpoint(playerNum).rotation) as GameObject;
+		PhotonNetwork.Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)].name, m_Chk.GetRespawnCheckpoint(playerNum).position, m_Chk.GetRespawnCheckpoint(playerNum).rotation, 0);
 		AssignPlayers ();
 		if (playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.DatBoi || playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.Spaceship || 
 			playerObjs [playerNum].GetComponent<ShipControls>().myChar == Master.Character.LittleGirl) {
@@ -57,19 +57,22 @@ public class SpawnerManager : Photon.MonoBehaviour{
 
 	public void OnJoinedRoom(){
 		AssignPlayers ();
+		if (PhotonNetwork.isMasterClient) {
+			
+		}
 	}
 
 
 	private void AssignPlayers(){
 		GameObject[] tempObjs = GameObject.FindGameObjectsWithTag("Player");
 
-		for (int x = 0; x = tempObjs.Length; x++) {
+		for (int x = 0; x < tempObjs.Length; x++) {
 			playerObjs [x] = tempObjs [x];
 		}
 	}
 
 	private void spawnPlayer(int playerNum){
-		PhotonNetwork.Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)].name, SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero));
+		PhotonNetwork.Instantiate(RacerPrefabs[(int)m.GetPlayerChar(playerNum)].name, SpawnPoints[playerNum].position, Quaternion.Euler(Vector3.zero), 0);
 		AssignPlayers ();
 		playerObjs [playerNum].GetComponentInChildren<Camera>().rect = new Rect((playerNum == 0 || playerNum == 2)? 0.0f : 0.5f, 
 			(playerNum == 2 || playerNum == 3)? 0.0f : 0.5f, 
